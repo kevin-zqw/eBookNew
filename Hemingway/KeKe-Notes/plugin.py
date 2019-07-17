@@ -19,17 +19,17 @@ def run(bk):
 		found1 = re.search(note_p,html)
 		if found is not None: #only once for each file with notes
 			html = re.sub(r'\<\/body\>',r'<div>\n<hr class="xian"/>\n</div>\n<ol class="duokan-footnote-content">\n</ol>\n</body>',html)
+		while found1 is not None:
+			fnid1 = fnid1+1
+			html = re.sub(note_p,r'',html,1)
+			html = re.sub(r'\<\/ol\>',r'\n<li class="duokan-footnote-item" id="B_'+found1.group(1)+r'">\n<p class="footnote"><a style="text-decoration:none!important;color:black;" href="#A_'+found1.group(2)+r'">◎</a>'+found1.group(3)+r'&#8203;​​​​​​​​</p>\n</li>\n</ol>',html,1)
+			print(id, href, 'id:'+found1.group(1).strip('[]^')+'; href:'+found1.group(2).strip('[]^')+'; footnote:'+found1.group(3))
+			found1 = re.search(note_p,html)
 		while found is not None:
 			fnid = fnid+1
 			html = re.sub(note_sup,r'<sup><a style="text-decoration:none!important;color:black;" class="duokan-footnote" href="#B_\2" id="A_\1"><img alt="" src="../Images/note.png"/></a></sup>',html,1)
 			print(id, href, 'id:'+found.group(1).strip('[]^')+'; href:'+found.group(2).strip('[]^'))
 			found = re.search(note_sup,html)
-		while found1 is not None:
-			fnid1 = fnid1+1
-			html = re.sub(note_p,r'',html,1)
-			html = re.sub(r'\<\/ol\>',r'\n<li class="duokan-footnote-item" id="B_\1">\n<p class="footnote"><a style="text-decoration:none!important;color:black;" href="#A_\2">◎</a>\3&#8203;​​​​​​​​</p>\n</li>\n</ol>',html,1)
-			print(id, href, 'id:'+found1.group(1).strip('[]^')+'; href:'+found1.group(2).strip('[]^')+'; footnote:'+found1.group(3))
-			found1 = re.search(note_p,html)
 		else:
 			print(id, href, "No notes found")
 		if not html == html_original:
