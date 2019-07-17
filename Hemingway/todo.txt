@@ -1,11 +1,6 @@
 TODO:
 
-4. 所有标题
-5. 标题不同颜色
-6. <h\d.*<br/>.*</h\d>
 
-1. c chapter和pretxt
-2. 献词和引文
 5. 图片
 6. 注释
 8. 生僻字
@@ -19,3 +14,5 @@ TODO:
 img.body-image
 - 首字大写
 <p class="l"><span class="first">这</span>
+
+- 考虑拆分大的html，加载太慢；短篇小说和书信，注释如何托运？
