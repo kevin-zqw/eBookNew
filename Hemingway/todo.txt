@@ -1,15 +1,11 @@
 TODO:
 
 
-5. 图片
 8. 生僻字
 
 
 - inline 图片生僻字处理
-- 图片处理：
-<div class="yiwen-image-single body-imagediv-alone">
-<img alt="" class="body-image-alone" src="../Images/image03361.jpeg"/></div>
-img.body-image
+
 - 首字大写
 <p class="l"><span class="first">这</span>
 
