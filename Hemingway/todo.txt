@@ -1,11 +1,6 @@
 TODO:
 
 
-8. 生僻字
-
-
-- inline 图片生僻字处理
-
 - 首字大写
 <p class="l"><span class="first">这</span>
 
