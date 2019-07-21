@@ -1,7 +1,0 @@
-TODO:
-
-
-- 首字大写
-<p class="l"><span class="first">这</span>
-
-- 考虑拆分大的html，加载太慢；短篇小说和书信，注释如何托运？
