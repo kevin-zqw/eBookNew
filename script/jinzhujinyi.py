@@ -114,5 +114,4 @@ if __name__ == '__main__':
             continue
 
         file_path = os.path.join(base_dir, filename)
-        #process_comment(file_path, True)
-        check_error(file_path)
+        process_comment(file_path, True)
