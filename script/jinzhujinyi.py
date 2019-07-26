@@ -8,38 +8,68 @@ import sys
 
 
 new_line = '\n'
+comment_need_merge_regex = r'(<p class="note1"><a id=".*?" href="\.\./Text/[\w\d]*?\.xhtml#.*?">.*?</a>.*?</p>)\s+<p class="normaltext.*?">'
+merge_replace_regex = r'(<p class="note1"><a id=".*?" href="\.\./Text/[\w\d]*?\.xhtml#.*?">.*?</a>)(.*?)(</p>)'
+comment_regex = r'<p class="note1"><a id=".*?" href="\.\./Text/[\w\d]*?\.xhtml#(.*?)">.*?</a>(.*?)</p>'
+merge_regex = r'<p class="normaltext.*?">\s*(.*?)</p>'
+merge_end_regex1 = r'<p.*?><br/></p>'
+merge_end_regex2 = r'<p.*?>【.*?】</p>'
 
 
-def check_error(path):
-    with open(path, 'r+', encoding='utf-8') as file:
-        all_line = file.readlines()
-        body_found = False
-        result_lines = []
-        for i, line in enumerate(all_line):
-            if line.strip() == '<body>':
-                body_found = True
-            if line.strip() == '</body>':
-                body_found = False
+def merge_comment(path):
+    need_merge_lines = []
+    with open(path, 'r', encoding='utf-8') as file:
+        html_content = file.read()
+        need_merge_lines = re.findall(comment_need_merge_regex, html_content)
 
-            if not body_found:
-                result_lines.append(line)
-                continue
+    if len(need_merge_lines) == 0:
+        return
 
-            line = line.strip()
-            matches = re.findall(r'[，。？！—、：<；>]\d{1,2}[，。？！—、：<；>]', line)
-            if len(matches) == 0:
-                result_lines.append(line + new_line)
+    print(path)
+
+    all_lines = []
+    with open(path, 'r', encoding='utf-8') as file:
+        is_merging = False
+        merging_line = ''
+
+        for line in file:
+            if is_merging:
+                is_another_comment = 0 < len(re.findall(comment_regex, line))
+                is_end1 = 0 < len(re.findall(merge_end_regex1, line))
+                is_end2 = 0 < len(re.findall(merge_end_regex2, line))
+
+                subtext = re.findall(merge_regex, line)
+                need_merge = 0 < len(subtext)
+
+                if need_merge:
+                    if 1 < len(subtext):
+                        raise Exception('Found more than 1 merge text')
+                    replace = r'\1\2<br/>　　' + subtext[0] + r'\3'
+                    merging_line = re.sub(merge_replace_regex, replace, merging_line)
+                elif is_end1 or is_end2:
+                    is_merging = False
+                    all_lines.append(merging_line)
+                    all_lines.append(line)
+                elif is_another_comment:
+                    if any(item for item in need_merge_lines if line.strip() == item):
+                        all_lines.append(merging_line)
+                        is_merging = True
+                        merging_line = line
+                    else:
+                        is_merging = False
+                        all_lines.append(merging_line)
+                        all_lines.append(line)
+                elif 0 < len(line.strip()):
+                    all_lines.append(line)
             else:
-                if line.startswith('<p>1'):
-                    result_lines.append(line + new_line)
+                if any(item for item in need_merge_lines if line.strip() == item):
+                    is_merging = True
+                    merging_line = line
                 else:
-                    print(line)
-                    pre_line = result_lines[-1].strip()
-                    result_lines[-1] = pre_line.replace('</p>', '') + line.replace('<p>', '') + new_line
+                    all_lines.append(line)
 
-        file.seek(0)
-        file.write(''.join(result_lines))
-        file.truncate()
+    with open(path, 'w', encoding='utf-8') as file:
+        file.writelines(all_lines)
 
 
 def process_comment(path, replace):
@@ -108,10 +138,13 @@ def process_comment(path, replace):
 
 
 if __name__ == '__main__':
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/html'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/html'
+
+    # merge_comment(r'/Users/kevin/GitHub/eBookNew/html/part0028.xhtml')
     for filename in os.listdir(base_dir):
         if not filename.endswith('.xhtml'):
             continue
 
         file_path = os.path.join(base_dir, filename)
-        process_comment(file_path, True)
+        merge_comment(file_path)
+        # process_comment(file_path, True)

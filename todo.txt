@@ -2,7 +2,7 @@
 <sup></sup>
 
 注释搜索：
-<p class="note1"><a
+<p class="note1"><a id=".*?" href="\.\./Text/[\w\d]*?\.xhtml#(.*?)">.*?</a>(.*?)</p>
 
 注释合并段落搜索：
 <p class="normaltext.*?"></p>
@@ -10,7 +10,6 @@
 <p class="note1"：表示下一条注释
 <p.*?><br/></p>
 <p.*?>【.*?】</p>
-<p.*?><br/>
 
 
 1. 合并多段注释，后续段前加两个全角空格，并以<br/>分段
