@@ -72,6 +72,69 @@ def merge_comment(path):
         file.writelines(all_lines)
 
 
+yiwen_title = r'<p class="subtitle">【今译】</p>'
+yiwen_merge_regex = r'<p class="normaltext">.*?</p>'
+normal_text_regex = r'<p class="normaltext\d+">.*?</p>'
+end_title_regex = r'<p class="title.*?>.*?</p>'
+end_sub_title_regex = r'<p class=".*?">[〇一二三四五六七八九十]+</p>'
+end_br_line = r'<p><br/></p>'
+end_div = r'<div'
+
+
+def merge_yi_wen(path):
+    with open(path, 'r', encoding='utf-8') as file:
+        html_content = file.read()
+        if yiwen_title not in html_content:
+            return
+
+    print(path)
+
+    all_lines = []
+    with open(path, 'r', encoding='utf-8') as file:
+        is_merging = False
+        yiwen_list = []
+        remove_empty = False
+
+        # TODO: 如果只有一个【今译】，不改变文本
+        for line in file:
+            if is_merging:
+                is_end_br = line.strip() == end_br_line
+                is_empty = len(line.strip()) == 0
+                is_normal_text = 0 < len(re.findall(normal_text_regex, line))
+                is_end_title = 0 < len(re.findall(end_title_regex, line))
+                is_end_subtitle = 0 < len(re.findall(end_sub_title_regex, line))
+                is_end_div = 0 < len(re.findall(end_div, line))
+
+                if 0 < len(re.findall(yiwen_merge_regex, line)):
+                    yiwen_list.append(line)
+                elif is_normal_text:
+                    all_lines.append(line)
+                elif line.strip() == yiwen_title:
+                    remove_empty = True
+                elif is_end_br:
+                    continue
+                elif is_empty and remove_empty:
+                    continue
+                elif is_end_title or is_end_subtitle or is_end_div:
+                    is_merging = False
+                    remove_empty = False
+                    all_lines.append('  ' + yiwen_title + new_line)
+                    all_lines.extend(yiwen_list)
+                    all_lines.append(line)
+                else:
+                    all_lines.append(line)
+            else:
+                if line.strip() == yiwen_title:
+                    is_merging = True
+                    remove_empty = False
+                    yiwen_list = []
+                else:
+                    all_lines.append(line)
+
+    with open(path, 'w', encoding='utf-8') as file:
+        file.writelines(all_lines)
+
+
 def process_comment(path, replace):
     print(os.path.basename(path))
 
@@ -146,5 +209,6 @@ if __name__ == '__main__':
             continue
 
         file_path = os.path.join(base_dir, filename)
-        merge_comment(file_path)
+        merge_yi_wen(file_path)
+        # merge_comment(file_path)
         # process_comment(file_path, True)
