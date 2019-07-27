@@ -92,12 +92,16 @@ def merge_yi_wen(path):
     all_lines = []
     with open(path, 'r', encoding='utf-8') as file:
         is_merging = False
+        multiple_yiwen_found = False
         yiwen_list = []
-        remove_empty = False
+        unchanged_list = []
+        changed_list = []
 
         # TODO: 如果只有一个【今译】，不改变文本
         for line in file:
             if is_merging:
+                unchanged_list.append(line)
+
                 is_end_br = line.strip() == end_br_line
                 is_empty = len(line.strip()) == 0
                 is_normal_text = 0 < len(re.findall(normal_text_regex, line))
@@ -108,26 +112,35 @@ def merge_yi_wen(path):
                 if 0 < len(re.findall(yiwen_merge_regex, line)):
                     yiwen_list.append(line)
                 elif is_normal_text:
-                    all_lines.append(line)
+                    changed_list.append(line)
                 elif line.strip() == yiwen_title:
-                    remove_empty = True
+                    multiple_yiwen_found = True
                 elif is_end_br:
                     continue
-                elif is_empty and remove_empty:
+                elif is_empty and multiple_yiwen_found:
                     continue
                 elif is_end_title or is_end_subtitle or is_end_div:
+                    if multiple_yiwen_found:
+                        all_lines.extend(changed_list)
+                        all_lines.append('  ' + yiwen_title + new_line)
+                        all_lines.extend(yiwen_list)
+                        all_lines.append(line)
+                    else:
+                        all_lines.extend(unchanged_list)
+
                     is_merging = False
-                    remove_empty = False
-                    all_lines.append('  ' + yiwen_title + new_line)
-                    all_lines.extend(yiwen_list)
-                    all_lines.append(line)
+                    multiple_yiwen_found = False
                 else:
-                    all_lines.append(line)
+                    changed_list.append(line)
             else:
                 if line.strip() == yiwen_title:
                     is_merging = True
-                    remove_empty = False
+                    multiple_yiwen_found = False
                     yiwen_list = []
+                    unchanged_list = []
+                    changed_list = []
+
+                    unchanged_list.append(line)
                 else:
                     all_lines.append(line)
 
