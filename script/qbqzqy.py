@@ -60,5 +60,18 @@ def wenxuan_split_all():
         wenxuan_split(base_dir, filename)
 
 
+def merge_all_notes():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = os.listdir(base_dir)
+    all_files.sort()
+
+    for filename in all_files:
+        if not filename.endswith('.xhtml'):
+            continue
+
+        wenxuan_split(base_dir, filename)
+
+
 if __name__ == '__main__':
-    wenxuan_split_all()
+    # wenxuan_split_all()
+    merge_all_notes()
