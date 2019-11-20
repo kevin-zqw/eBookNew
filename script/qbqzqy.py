@@ -68,12 +68,11 @@ def insert_notes(base_dir, filename):
 
     note_regex = r'<p class="fs">(\[\d+\])(.*?)</p>'
     header = r'<p>【<b>注释</b>】</p>'
-    hr_tag = r'<hr/>'
 
     content = ''
     changed = False
     for line in all_lines:
-        if header in line or hr_tag in line:
+        if header in line:
             continue
 
         matches = re.findall(note_regex, line)
@@ -93,6 +92,11 @@ def insert_notes(base_dir, filename):
         else:
             content += line
 
+    if changed:
+        with open(path, 'w', encoding='utf-8') as file:
+            file.write(content)
+            file.truncate()
+
 
 def insert_all_notes():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
@@ -104,6 +108,11 @@ def insert_all_notes():
             continue
 
         insert_notes(base_dir, filename)
+
+
+def merge_all_text():
+    pass
+    hr_tag = r'<hr/>'
 
 
 if __name__ == '__main__':
