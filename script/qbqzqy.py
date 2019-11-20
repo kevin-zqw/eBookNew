@@ -60,7 +60,41 @@ def wenxuan_split_all():
         wenxuan_split(base_dir, filename)
 
 
-def merge_all_notes():
+def insert_notes(base_dir, filename):
+    path = os.path.join(base_dir, filename)
+
+    with open(path, 'r', encoding='utf-8') as file:
+        all_lines = file.readlines()
+
+    note_regex = r'<p class="fs">(\[\d+\])(.*?)</p>'
+    header = r'<p>【<b>注释</b>】</p>'
+    hr_tag = r'<hr/>'
+
+    content = ''
+    changed = False
+    for line in all_lines:
+        if header in line or hr_tag in line:
+            continue
+
+        matches = re.findall(note_regex, line)
+        if matches:
+            changed = True
+
+            index = matches[0][0]
+            note = matches[0][1]
+            sup_tag = f'<sup>{index}</sup>'
+            replace = f'【【{note}】】'
+
+            if content.count(sup_tag) == 1:
+                content = replace.join(content.rsplit(sup_tag, 1))
+            else:
+                print(line)
+                content += line
+        else:
+            content += line
+
+
+def insert_all_notes():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
     all_files = os.listdir(base_dir)
     all_files.sort()
@@ -69,9 +103,9 @@ def merge_all_notes():
         if not filename.endswith('.xhtml'):
             continue
 
-        wenxuan_split(base_dir, filename)
+        insert_notes(base_dir, filename)
 
 
 if __name__ == '__main__':
     # wenxuan_split_all()
-    merge_all_notes()
+    insert_all_notes()
