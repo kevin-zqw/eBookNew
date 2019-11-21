@@ -50,8 +50,7 @@ def wenxuan_split(base_dir, filename):
 
 def wenxuan_split_all():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
-    all_files = os.listdir(base_dir)
-    all_files.sort()
+    all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
         if not filename.endswith('.xhtml'):
@@ -100,14 +99,45 @@ def insert_notes(base_dir, filename):
 
 def insert_all_notes():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
-    all_files = os.listdir(base_dir)
-    all_files.sort()
+    all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
         if not filename.endswith('.xhtml'):
             continue
 
         insert_notes(base_dir, filename)
+
+
+def process_h1():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = sorted(os.listdir(base_dir), reverse=True)
+
+    h1_result = []
+    vol_h3 = []
+    for filename in all_files:
+        if not filename.endswith('.xhtml'):
+            continue
+
+        path = os.path.join(base_dir, filename)
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read()
+
+            h3_matches = re.findall(r'<h3>(.*?)</h3>', content)
+            if h3_matches:
+                vol_h3.extend(h3_matches)
+
+            h1_matches = re.findall(r'<h1>(.*?)</h1>', content)
+            if h1_matches:
+                if 0 < len(vol_h3):
+                    h1 = h1_matches[0]
+                    vol_h3.reverse()
+                    h3_str = '、'.join(vol_h3)
+                    h1_result.append((h1, f'{h1} {h3_str}'))
+
+                vol_h3 = []
+
+    print(h1_result)
+
 
 
 def merge_all_text():
@@ -117,4 +147,5 @@ def merge_all_text():
 
 if __name__ == '__main__':
     # wenxuan_split_all()
-    insert_all_notes()
+    # insert_all_notes()
+    process_h1()
