@@ -118,6 +118,8 @@ def process_heading_1():
 
     h1_result = []
     vol_h3 = []
+    h3_temp_files = []
+    need_delete_h3_files = []
     for filename in all_files:
         if not filename.endswith('.xhtml'):
             continue
@@ -130,6 +132,7 @@ def process_heading_1():
             h3_matches = re.findall(r'<h3>(.*?)</h3>', content)
             if h3_matches:
                 vol_h3.extend(h3_matches)
+                h3_temp_files.append(filename)
 
             h1_matches = re.findall(r'<h1>(.*?)</h1>', content)
             if h1_matches:
@@ -138,10 +141,27 @@ def process_heading_1():
                     vol_h3.reverse()
                     h3_str = '、'.join(vol_h3)
                     h1_result.append((h1, f'{h1} {h3_str}', filename))
+                    if 1 == len(vol_h3):
+                        need_delete_h3_files.extend(h3_temp_files)
 
                 vol_h3 = []
+                h3_temp_files = []
 
-    print(h1_result)
+    for (old, new, filename) in h1_result:
+        old_h = f'<h1>{old}</h1>'
+        new_h = f'<h1>{new}</h1>'
+
+        path = os.path.join(base_dir, filename)
+        with open(path, 'r+', encoding='utf-8') as file:
+            content = file.read()
+            content = content.replace(old_h, new_h)
+
+            if filename in need_delete_h3_files:
+                content = re.sub(r'<h3>.*?</h3>', '', content)
+
+            file.seek(0)
+            file.write(content)
+            file.truncate()
 
 
 def process_heading_5():
@@ -177,7 +197,18 @@ def process_heading_5():
                 article = h5_articles[0]
                 h5_result.append((article, f'{article}（{author}）', filename))
 
-    print(h5_result)
+    for (old, new, filename) in h5_result:
+        old_h = f'<h5>{old}</h5>'
+        new_h = f'<h5>{new}</h5>'
+
+        path = os.path.join(base_dir, filename)
+        with open(path, 'r+', encoding='utf-8') as file:
+            content = file.read()
+            content = content.replace(old_h, new_h)
+
+            file.seek(0)
+            file.write(content)
+            file.truncate()
 
 
 def merge_all_text():
