@@ -43,11 +43,11 @@ def wenxuan_split(base_dir, filename):
             with open(dest_path, 'w', encoding='utf-8') as file:
                 file.write(html)
                 file.truncate()
-    # else:
-    #     dest_path = os.path.join(dest_dir, filename)
-    #     with open(dest_path, 'w', encoding='utf-8') as file:
-    #         file.write(content)
-    #         file.truncate()
+    else:
+        dest_path = os.path.join(dest_dir, filename)
+        with open(dest_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+            file.truncate()
 
 
 def wenxuan_split_all():
