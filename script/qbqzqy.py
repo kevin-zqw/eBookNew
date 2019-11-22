@@ -5,6 +5,7 @@ import os
 import shutil
 import re
 import sys
+import collections
 
 
 def wenxuan_split(base_dir, filename):
@@ -113,7 +114,9 @@ def process_h1():
     all_files = sorted(os.listdir(base_dir), reverse=True)
 
     h1_result = []
+    h5_result = []
     vol_h3 = []
+    vol_h5 = []
     for filename in all_files:
         if not filename.endswith('.xhtml'):
             continue
@@ -122,9 +125,11 @@ def process_h1():
         with open(path, 'r', encoding='utf-8') as file:
             content = file.read()
 
+            # process h1
             h3_matches = re.findall(r'<h3>(.*?)</h3>', content)
             if h3_matches:
                 vol_h3.extend(h3_matches)
+                vol_h5 = []
 
             h1_matches = re.findall(r'<h1>(.*?)</h1>', content)
             if h1_matches:
@@ -132,9 +137,25 @@ def process_h1():
                     h1 = h1_matches[0]
                     vol_h3.reverse()
                     h3_str = '、'.join(vol_h3)
-                    h1_result.append((h1, f'{h1} {h3_str}'))
+                    h1_result.append((h1, f'{h1} {h3_str}', filename))
 
                 vol_h3 = []
+                vol_h5 = []
+
+            # process author and articles
+            h5_articles = re.findall(r'<h5>(.*?)</h5>', content)
+            if h5_articles:
+                vol_h5.extend(h5_articles)
+
+            h4_authors = re.findall(r'<h4>(.*?)</h4>', content)
+            if h4_authors:
+                author = h4_authors[0]
+                print(author, vol_h5)
+
+                if 0 < len(vol_h5):
+                    pass
+
+                vol_h5 = []
 
     print(h1_result)
 
