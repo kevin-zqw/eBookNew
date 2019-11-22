@@ -14,26 +14,25 @@ def wenxuan_split(base_dir, filename):
     name_no_ext = os.path.splitext(filename)[0]
     extension = '.xhtml'
 
-    content = ''
     with open(src_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
-    if '<h5' in content:
+    h4_tag = '<h4'
+    h5_tag = '<h5'
+    if h4_tag in content and h5_tag in content:
         body = '<body>'
         prefix = content.split(body)[0] + body + '\n'
         postfix = '</body>\n</html>'
 
-        h5 = '<h5'
-        parts = content.split(h5)
+        parts = content.split(h5_tag)
         last_index = len(parts) - 1
         for (index, pt) in enumerate(parts):
-            html = ''
             if index == 0:
                 html = pt + postfix
             elif index == last_index:
-                html = prefix + h5 + pt
+                html = prefix + h5_tag + pt
             else:
-                html = prefix + h5 + pt + postfix
+                html = prefix + h5_tag + pt + postfix
 
             index_str = '_%03d' % index
             dest_name = name_no_ext + index_str + extension
@@ -109,7 +108,7 @@ def insert_all_notes():
         insert_notes(base_dir, filename)
 
 
-def process_h1():
+def process_heading():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
     all_files = sorted(os.listdir(base_dir), reverse=True)
 
@@ -167,6 +166,6 @@ def merge_all_text():
 
 
 if __name__ == '__main__':
-    # wenxuan_split_all()
+    wenxuan_split_all()
     # insert_all_notes()
-    process_h1()
+    # process_heading()
