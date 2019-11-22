@@ -17,18 +17,16 @@ def wenxuan_split(base_dir, filename):
     with open(src_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
+    h1_tag = '<h1'
     h3_tag = '<h3'
     h4_tag = '<h4'
     h5_tag = '<h5'
-    if h4_tag in content and h5_tag in content:
+    if h1_tag in content and h3_tag in content:
         body = '<body>'
         prefix = content.split(body)[0] + body + '\n'
         postfix = '</body>\n</html>'
 
-        if h3_tag in content:
-            tag = h3_tag
-        else:
-            tag = h4_tag
+        tag = h3_tag
         parts = content.split(tag)
         last_index = len(parts) - 1
         for (index, pt) in enumerate(parts):
@@ -45,11 +43,11 @@ def wenxuan_split(base_dir, filename):
             with open(dest_path, 'w', encoding='utf-8') as file:
                 file.write(html)
                 file.truncate()
-    else:
-        dest_path = os.path.join(dest_dir, filename)
-        with open(dest_path, 'w', encoding='utf-8') as file:
-            file.write(content)
-            file.truncate()
+    # else:
+    #     dest_path = os.path.join(dest_dir, filename)
+    #     with open(dest_path, 'w', encoding='utf-8') as file:
+    #         file.write(content)
+    #         file.truncate()
 
 
 def wenxuan_split_all():
@@ -211,13 +209,42 @@ def process_heading_5():
             file.truncate()
 
 
+def rename_all_files():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = sorted(os.listdir(base_dir))
+
+    vol_index = 0
+    sec_index = 0
+    file_index = 0
+    for filename in all_files:
+        if not filename.endswith('.xhtml'):
+            continue
+
+        path = os.path.join(base_dir, filename)
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read()
+
+        if r'<h1>卷' in content:
+            vol_index += 1
+            sec_index = 0
+            file_index = 0
+        elif r'<h3>' in content:
+            sec_index += 1
+            file_index = 0
+
+        new_name = 'v%02d_s%02d_p%02d.xhtml' % (vol_index, sec_index, file_index)
+        print(filename, new_name)
+        file_index += 1
+
+
 def merge_all_text():
     pass
     hr_tag = r'<hr/>'
 
 
 if __name__ == '__main__':
-    # wenxuan_split_all()
+    wenxuan_split_all()
     # insert_all_notes()
     # process_heading_1()
-    process_heading_5()
+    # process_heading_5()
+    # rename_all_files()
