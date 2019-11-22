@@ -17,6 +17,7 @@ def wenxuan_split(base_dir, filename):
     with open(src_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
+    h3_tag = '<h3'
     h4_tag = '<h4'
     h5_tag = '<h5'
     if h4_tag in content and h5_tag in content:
@@ -24,15 +25,19 @@ def wenxuan_split(base_dir, filename):
         prefix = content.split(body)[0] + body + '\n'
         postfix = '</body>\n</html>'
 
-        parts = content.split(h4_tag)
+        if h3_tag in content:
+            tag = h3_tag
+        else:
+            tag = h4_tag
+        parts = content.split(tag)
         last_index = len(parts) - 1
         for (index, pt) in enumerate(parts):
             if index == 0:
                 html = pt + postfix
             elif index == last_index:
-                html = prefix + h4_tag + pt
+                html = prefix + tag + pt
             else:
-                html = prefix + h4_tag + pt + postfix
+                html = prefix + tag + pt + postfix
 
             index_str = '_%03d' % index
             dest_name = name_no_ext + index_str + extension
