@@ -237,6 +237,30 @@ def rename_all_files():
         file_index += 1
 
 
+def move_no_need_merge_files():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    dest_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html_no_merge'
+
+    yiwen = r'<p>【<b>译文</b>】</p>'
+    hr = r'<hr/>'
+
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+
+        path = os.path.join(base_dir, filename)
+        dest_path = os.path.join(dest_dir, filename)
+
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read()
+
+        if content.count(yiwen) != content.count(hr):
+            print(filename)
+            continue
+
+        need_merge = True
+
+
 def merge_all_text():
     pass
     hr_tag = r'<hr/>'
@@ -247,4 +271,5 @@ if __name__ == '__main__':
     # insert_all_notes()
     # process_heading_1()
     # process_heading_5()
-    rename_all_files()
+    # rename_all_files()
+    move_no_need_merge_files()

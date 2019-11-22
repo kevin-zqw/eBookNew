@@ -53,8 +53,7 @@ if __name__ == '__main__':
     dir_path = sys.argv[1]
 
     for filename in os.listdir(dir_path):
-        # hidden files
-        if filename.startswith('.'):
+        if not filename.endswith('.xhtml'):
             continue
 
         file_path = os.path.join(dir_path, filename)
