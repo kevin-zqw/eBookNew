@@ -233,7 +233,7 @@ def rename_all_files():
             file_index = 0
 
         new_name = 'v%02d_s%02d_p%02d.xhtml' % (vol_index, sec_index, file_index)
-        print(filename, new_name)
+        os.rename(os.path.join(base_dir, filename), os.path.join(base_dir, new_name))
         file_index += 1
 
 
@@ -243,8 +243,8 @@ def merge_all_text():
 
 
 if __name__ == '__main__':
-    wenxuan_split_all()
+    # wenxuan_split_all()
     # insert_all_notes()
     # process_heading_1()
     # process_heading_5()
-    # rename_all_files()
+    rename_all_files()
