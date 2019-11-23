@@ -279,15 +279,59 @@ def merge_all_text():
 
     yiwen = r'<p>【<b>译文</b>】</p>'
     hr = r'<hr/>'
+    body_end = r'</body>'
+    html_end = r'</html>'
+    origin_placeholder = '<p class="origin"><br/></p>\n'
 
     for filename in all_files:
         if not filename.endswith('.xhtml'):
             continue
 
+        prefix = []
+        origin = []
+        translate = []
+
+        merge_started = False
+        is_translate = False
+
         path = os.path.join(base_dir, filename)
         with open(path, 'r', encoding='utf-8') as file:
             all_lines = file.readlines()
+            for line in all_lines:
+                if hr in line:
+                    merge_started = True
+                    is_translate = False
+                    if 0 == len(origin):
+                        origin.append(origin_placeholder)
+                    continue
+                if yiwen in line:
+                    merge_started = True
+                    is_translate = True
+                    if 0 == len(translate):
+                        translate.append(line)
+                    continue
 
+                if body_end in line:
+                    break
+
+                if merge_started:
+                    if is_translate:
+                        translate.append(line)
+                    else:
+                        origin.append(line)
+                else:
+                    prefix.append(line)
+
+        result = []
+        result.extend(prefix)
+        result.extend(origin)
+        result.extend(translate)
+        result.append(body_end + '\n')
+        result.append(html_end + '\n')
+
+        with open(path, 'w', encoding='utf-8') as file:
+            file.write(''.join(result))
+            file.truncate()
 
 
 if __name__ == '__main__':
@@ -296,5 +340,5 @@ if __name__ == '__main__':
     # process_heading_1()
     # process_heading_5()
     # rename_all_files()
-    move_no_need_merge_files()
-    # merge_all_text()
+    # move_no_need_merge_files()
+    merge_all_text()
