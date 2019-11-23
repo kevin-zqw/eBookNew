@@ -243,6 +243,8 @@ def move_no_need_merge_files():
 
     yiwen = r'<p>【<b>译文</b>】</p>'
     hr = r'<hr/>'
+    h6 = r'<h6'
+    poem_title = r'<p class="center"><b'
 
     for filename in os.listdir(base_dir):
         if not filename.endswith('.xhtml'):
@@ -256,9 +258,15 @@ def move_no_need_merge_files():
 
         if content.count(yiwen) != content.count(hr):
             print(filename)
-            continue
 
-        need_merge = True
+        need_move = False
+        if h6 in content or poem_title in content:
+            need_move = True
+        if content.count(yiwen) <= 1 or content.count(hr) <= 1:
+            need_move = True
+
+        if need_move:
+            os.rename(path, dest_path)
 
 
 def merge_all_text():
