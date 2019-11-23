@@ -7,6 +7,7 @@
 7. 封面和卷
 8. <b>移除
 9. class="center"
+10. <p class="origin"><br/></p>
 
 合并：
 1. 检查不匹配的错误
