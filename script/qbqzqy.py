@@ -245,6 +245,7 @@ def move_no_need_merge_files():
     hr = r'<hr/>'
     h6 = r'<h6'
     poem_title = r'<p class="center"><b'
+    title_regex = r'<h\d.*?[^一]首'
 
     for filename in os.listdir(base_dir):
         if not filename.endswith('.xhtml'):
@@ -264,14 +265,29 @@ def move_no_need_merge_files():
             need_move = True
         if content.count(yiwen) <= 1 or content.count(hr) <= 1:
             need_move = True
+        title_match = re.findall(title_regex, content)
+        if title_match and 0 < len(title_match):
+            need_move = True
 
         if need_move:
             os.rename(path, dest_path)
 
 
 def merge_all_text():
-    pass
-    hr_tag = r'<hr/>'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = sorted(os.listdir(base_dir))
+
+    yiwen = r'<p>【<b>译文</b>】</p>'
+    hr = r'<hr/>'
+
+    for filename in all_files:
+        if not filename.endswith('.xhtml'):
+            continue
+
+        path = os.path.join(base_dir, filename)
+        with open(path, 'r', encoding='utf-8') as file:
+            all_lines = file.readlines()
+
 
 
 if __name__ == '__main__':
@@ -281,3 +297,4 @@ if __name__ == '__main__':
     # process_heading_5()
     # rename_all_files()
     move_no_need_merge_files()
+    # merge_all_text()
