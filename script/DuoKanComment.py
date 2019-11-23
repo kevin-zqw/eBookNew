@@ -6,11 +6,11 @@ import shutil
 import re
 import sys
 
-pattern_duokan_comment = r'(【\d+\s*[：:]\s*(.*?)】)'
-duokan_comment_ref_template = '<sup><a class="duokan-footnote" href="#footnote{}" id="note{}"><img alt="注" src="../Images/note.png"/></a></sup>'
-duokan_comment_define_template = '    <li class="duokan-footnote-item" id="footnote{}"><a href="#note{}">{}</a></li>'
-duokan_comment_start = '  <ol class="duokan-footnote-content hr"></ol>\n  <ol class="duokan-footnote-content">\n'
-duokan_comment_end = '  </ol>\n'
+pattern_duokan_comment = r'(【【([^【】]*?)】】)'
+duokan_comment_ref_template = '<sup><a style="text-decoration:none!important;color:black;" class="duokan-footnote" href="#footnote{}" id="note{}"><img alt="" src="../Images/note.png"/></a></sup>'
+duokan_comment_define_template = '<li class="duokan-footnote-item" id="footnote{}">\n<p class="footnote"><a style="text-decoration:none!important;color:black;" href="#note{}">◎</a>{}​​​​​​​​​</p>\n</li>\n\n'
+duokan_comment_start = '\n\n<div>\n<hr class="xian"/>\n</div>\n\n<ol class="duokan-footnote-content">\n\n'
+duokan_comment_end = '</ol>\n\n'
 
 
 def process_comment(file_path):
@@ -35,10 +35,9 @@ def process_comment(file_path):
         if len(duokan_comment) > 0:
             f.write(duokan_comment_start)
             for comment in duokan_comment:
-                f.write(comment + '\n')
+                f.write(comment)
             f.write(duokan_comment_end)
 
-        f.write('\n')
         f.write('</body>'+'\n')
         f.write('</html>'+'\n')
 
@@ -46,11 +45,11 @@ def process_comment(file_path):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('usage: python3 {} <dir>'.format(sys.argv[0]))
-        exit(0)
-
-    dir_path = sys.argv[1]
+    # if len(sys.argv) < 2:
+    #     print('usage: python3 {} <dir>'.format(sys.argv[0]))
+    #     exit(0)
+    # dir_path = sys.argv[1]
+    dir_path = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
 
     for filename in os.listdir(dir_path):
         if not filename.endswith('.xhtml'):
