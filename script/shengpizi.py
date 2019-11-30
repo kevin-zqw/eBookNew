@@ -39,12 +39,36 @@ def split_images():
 
 
 def read_all_hanzi():
-    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/'
-    filename = r'hanzi.txt'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/hanzi'
+    all_txt = list(filter(lambda f: f.endswith('.txt'), os.listdir(base_dir)))
+
+    all_hanzi = []
+    for filename in all_txt:
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            for line in file:
+                match = re.findall(r'([^\s：]*)：([^\s：]*)', line)
+                if match:
+                    all_hanzi.extend(match)
+    return all_hanzi
 
 
 def replace_hanzi():
-    pass
+    all_hanzi = read_all_hanzi()
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r+', encoding='utf-8') as file:
+            content = file.read()
+            for (image, hanzi) in all_hanzi:
+                old = f'<img src="../Images/{image}" alt="" class="kindle-cn-inline-character"/>'
+                content = content.replace(old, hanzi, 1)
+
+            file.seek(0)
+            file.write(content)
+            file.truncate()
 
 
 if __name__ == '__main__':
