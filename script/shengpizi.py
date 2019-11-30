@@ -38,6 +38,11 @@ def split_images():
             os.rename(src_file, dest_file)
 
 
+def read_all_hanzi():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/'
+    filename = r'hanzi.txt'
+
+
 def replace_hanzi():
     pass
 
