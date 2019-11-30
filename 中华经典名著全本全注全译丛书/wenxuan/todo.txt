@@ -9,6 +9,9 @@
 9. class="center"
 10. <p class="origin"><br/></p>
 11. main.css，兼容注释代码，复制kaiti等其它样式过来
+12. 分卷 大标题和小标题 颜色互换
+13. <p class="center">不连续改intitle，连续则包在<blockquote>中
+14. 检查并替换所有css文件
 
 合并：
 1. 检查不匹配的错误
