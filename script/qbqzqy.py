@@ -334,6 +334,22 @@ def merge_all_text():
             file.truncate()
 
 
+def process_center_block():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = sorted(os.listdir(base_dir))
+
+    for filename in all_files:
+        file_path = os.path.join(base_dir, filename)
+
+        result_lines = []
+        block_lines = []
+        block_started = False
+        with open(file_path, 'r', encoding='utf-8') as file:
+            for line in file:
+                if 'class="center"' in line:
+                    block_started = True
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -341,4 +357,5 @@ if __name__ == '__main__':
     # process_heading_5()
     # rename_all_files()
     # move_no_need_merge_files()
-    merge_all_text()
+    # merge_all_text()
+    process_center_block()
