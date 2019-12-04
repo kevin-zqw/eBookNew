@@ -335,19 +335,38 @@ def merge_all_text():
 
 
 def process_center_block():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    center_tag = r'class="center"'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
         file_path = os.path.join(base_dir, filename)
 
-        result_lines = []
-        block_lines = []
-        block_started = False
         with open(file_path, 'r', encoding='utf-8') as file:
-            for line in file:
-                if 'class="center"' in line:
-                    block_started = True
+            all_lines = file.readlines()
+            title_indexes = []
+            poem_indexes = []
+
+            line_count = len(all_lines)
+            for (index, line) in enumerate(all_lines):
+                is_current_match = center_tag in line
+                is_previous_match = False
+                is_next_match = False
+                previous = index - 1
+                next = index + 1
+                if 0 <= previous:
+                    is_previous_match = center_tag in all_lines[previous]
+                if next < line_count:
+                    is_next_match = center_tag in all_lines[next]
+
+                if is_current_match:
+                    if is_previous_match or is_next_match:
+                        poem_indexes.append(index)
+                    else:
+                        title_indexes.append(index)
+
+            print("title", title_indexes)
+            print("poem", poem_indexes)
 
 
 if __name__ == '__main__':
