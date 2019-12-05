@@ -385,4 +385,5 @@ if __name__ == '__main__':
     # rename_all_files()
     # move_no_need_merge_files()
     # merge_all_text()
-    process_center_block()
+    # process_center_block()
+    pass
