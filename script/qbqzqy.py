@@ -337,12 +337,13 @@ def merge_all_text():
 def process_center_block():
     base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
     center_tag = r'class="center"'
+    title_tag = r'class="intitle"'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
         file_path = os.path.join(base_dir, filename)
 
-        with open(file_path, 'r', encoding='utf-8') as file:
+        with open(file_path, 'r+', encoding='utf-8') as file:
             all_lines = file.readlines()
             title_indexes = []
             poem_indexes = []
@@ -365,8 +366,15 @@ def process_center_block():
                     else:
                         title_indexes.append(index)
 
-            print("title", title_indexes)
-            print("poem", poem_indexes)
+            need_save = 0 < len(title_indexes) or 0 < len(poem_indexes)
+            for index in title_indexes:
+                line = all_lines[index]
+                all_lines[index] = line.replace(center_tag, title_tag)
+
+            if need_save:
+                file.seek(0)
+                file.writelines(all_lines)
+                file.truncate()
 
 
 if __name__ == '__main__':
