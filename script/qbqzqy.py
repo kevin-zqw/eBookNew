@@ -377,6 +377,17 @@ def process_center_block():
                 file.truncate()
 
 
+def check_merge():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    all_files = sorted(os.listdir(base_dir))
+    for filename in all_files:
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r+', encoding='utf-8') as file:
+            contents = file.read()
+        if contents.count('yuanwen.png') <= 1 and contents.count('yiwen.png') <= 1:
+            os.remove(file_path)
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -386,4 +397,4 @@ if __name__ == '__main__':
     # move_no_need_merge_files()
     # merge_all_text()
     # process_center_block()
-    pass
+    check_merge()
