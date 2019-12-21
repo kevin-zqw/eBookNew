@@ -1,0 +1,181 @@
+@charset "UTF-8";
+.hide{
+	display:none;
+	}
+
+/*內文*/
+p {
+	line-height:1.6em;
+	margin:0;
+	text-indent:2em;
+	}
+p:last-child{
+	margin-bottom:0;
+	}
+div:last-child{
+	margin-bottom:0;
+	}
+
+/*標題*/
+h1 {
+	color:#a6733e;
+	font-size:1.6em;
+	text-align:center;
+	margin-bottom:1em;
+	}
+.num {
+	color:#a6733e;
+	display:block;
+	font-size:0.6em;
+	}
+h2 {
+	color:#687560;
+	font-size:1.2em;
+	margin-top:1em;
+	margin-bottom:2em;
+	}
+h3 {
+	color:#a6733e;
+	font-size:1.2em;
+	margin-top:2.5em;
+	margin-bottom:0.75em;
+	}
+h4 {
+	font-size:1em;
+	margin-top:2.5em;
+	margin-bottom:0.75em;
+	}
+h3 + h4 {
+	margin-top:0.5em;
+	}
+.bc {
+	color:#8e8e8e;
+	padding-right:0.4em;
+	}
+
+/*段落標記*/
+
+/*首行不縮排*/
+.noindent {
+	text-indent:0em;
+	}
+
+/*楷書*/
+.kai {
+	color:#815930;
+	font-family:"標楷體", "BiauKai", "Lucida Grande", Serif;
+	margin:1.5em 0;
+	}
+.kai p {
+	font-family:"標楷體", "BiauKai", "Lucida Grande", Serif;
+	}
+
+/*列點*/
+ul {
+	margin:1em auto;
+	}
+ol {
+	margin:1em auto;
+	}
+li {
+	line-height:1.6em;
+	margin:0.25em auto;
+	}
+
+
+a.footnote {
+	color:#a05c21;
+	font-size:0.6em;
+	line-height:1em;
+	margin-right:0.5em;
+	text-decoration :none;
+	vertical-align:super;
+	}
+ol.footnote {
+	border-top:1px #a05c21 solid;
+	font-size:0.8em;
+	margin-top:5em;
+	margin-bottom:0;
+	}
+
+
+/*參考文獻*/
+.ref1 {
+	font-size:0.95em;
+	margin:0.5em 0 0 1.5em;
+	text-indent:-1em;
+	}
+
+/*人物略傳*/
+.name {
+	font-weight:bold;
+	margin:0;
+	text-indent:0em;
+	}
+.st {
+	color:#8e8e8e;
+	font-size:0.8em;
+	margin-bottom:0.5em;
+	}
+hr {
+	border-top:1px solid #8e8e8e;
+	border-bottom:0px;
+	border-right:0px;
+	border-left:0px;
+	height:0;
+	margin:1.5em 0;
+	}
+
+
+/*圖片圖說*/
+.pic {
+	text-align:center;
+	margin:1.5em auto;
+	width:98%;
+	}
+.pic img {
+	max-width:100%;
+	}
+.picop {
+	text-align:center;
+	margin:auto;
+	width:98%;
+	}
+.picop img {
+	max-width:100%;
+	}
+.picf {
+	text-align:center;
+	margin:3em auto 0 auto;
+	width:98%;
+	}
+.picf img {
+	max-width:100%;
+	}
+.picv {
+	text-align:center;
+	margin:1.5em auto;
+	width:70%;
+	}
+.picv img {
+	max-width:100%;
+	}
+.pics {
+	text-align:center;
+	margin:1.5em auto;
+	width:50%;
+	}
+.pics img {
+	max-width:100%;
+	}
+.caption {
+	display:block;
+	color:#5e5e5e;
+	line-height:1.25em;
+	font-size:0.65em;
+	text-align:left;
+	text-indent:0em !important;
+	padding:0em;
+	margin-left:1em;
+	margin-bottom:0.75em;
+	}
