@@ -1,0 +1,279 @@
+.caption w {
+     width: .7em;
+}
+
+.boxend .pic {
+     margin: 0 auto;
+}
+
+.qt {
+     margin: 0 0 0 4em;
+     margin-left: 4em;
+     text-indent: -2em;
+}
+
+.num2 {
+     color: #565656;
+     display: block;
+     font-size: .6em;
+     padding-top: .2em;
+}
+
+h5 {
+     color: #565656;
+     font-size: .95em;
+     margin-top: 2em;
+     margin-bottom: .5em;
+}
+
+.author-center {
+     font-size: .9em;
+     text-align: center;
+     text-indent: ;
+     margin-top: .5em;
+     margin-bottom: 2em;
+}
+
+.dia {
+     font-family: "標楷體", "BiauKai", "Lucida Grande", Serif;
+     margin: 1.5em 0 .25em;
+     text-indent: ;
+}
+
+.dia-ph1 {
+     font-family: "標楷體", "BiauKai", "Lucida Grande", Serif;
+     margin: .5em 0 .25em;
+     text-indent: ;
+}
+
+.qt1 {
+     margin-left: 3em;
+     text-indent: -1em;
+}
+
+.boxend h4 {
+     margin: 0 0 .5em;
+}
+
+.boxend ul {
+     font-size: .95em;
+     margin: 0;
+     padding-left: 1.5em;
+}
+
+.boxend {
+     border: 1px solid #565656;
+     font-size: .95em;
+     margin: 2.5em 0;
+     padding: .7em;
+}
+
+.boxend p {
+     margin-top: .25em;
+     color: #565656;
+     text-indent: ;
+}
+
+.sec {
+     color: #565656;
+     margin-top: 2em;
+     margin-bottom: 2em;
+     text-align: center;
+     text-indent: ;
+}
+
+.ref2 {
+     font-size: .95em;
+     color: #565656;
+     margin 0 0 2.5em: ;
+     text-indent: -1em;
+}
+
+.gs {
+     color: #9b9b9b;
+}
+
+.st {
+     color: #8e8e8e;
+     font-size: .8em;
+     margin-bottom: .5em;
+}
+
+.picf {
+     text-align: center;
+     margin: 3em auto 0;
+     width: 98%;
+}
+
+.pics {
+     text-align: center;
+     margin: 1.5em auto;
+     width: 50%;
+}
+
+.w {
+     vertical-align: text-top;
+     width: 1em;
+}
+
+.wc {
+     vertical-align: text-top;
+     width: .7em;
+}
+
+@charset "UTF-8";.hide {
+     display: none;
+}
+
+p {
+     line-height: 1.6em;
+     margin: 0;
+     text-indent: 2em;
+}
+
+div:last-child, p:last-child {
+     margin-bottom: 0;
+}
+
+h1 {
+     color: #a6733e;
+     font-size: 1.6em;
+     text-align: center;
+     margin-bottom: 1em;
+}
+
+.num {
+     color: #a6733e;
+     display: block;
+     font-size: .6em;
+}
+
+h2 {
+     color: #687560;
+     font-size: 1.2em;
+     margin-top: 1em;
+     margin-bottom: 2em;
+}
+
+h3 {
+     color: #a6733e;
+     font-size: 1.2em;
+     margin-top: 2.5em;
+     margin-bottom: .75em;
+}
+
+h4 {
+     font-size: 1em;
+     margin-top: 2.5em;
+     margin-bottom: .75em;
+}
+
+h3 + h4 {
+     margin-top: .5em;
+}
+
+.bc {
+     color: #8e8e8e;
+     padding-right: .4em;
+}
+
+.author {
+     font-size: .9em;
+     text-align: right;
+     margin-top: .5em;
+     margin-bottom: 2em;
+}
+
+.noindent {
+     text-indent: ;
+}
+
+.kai {
+     color: #815930;
+     font-family: "標楷體", "BiauKai", "Lucida Grande", Serif;
+     margin: 1.5em 0;
+}
+
+.kai p, .y {
+     font-family: "標楷體", "BiauKai", "Lucida Grande", Serif;
+}
+
+ol, ul {
+     margin: 1em auto;
+}
+
+li {
+     line-height: 1.6em;
+     margin: .25em auto;
+}
+
+a.footnote {
+     color: #a05c21;
+     font-size: .6em;
+     line-height: 1em;
+     margin-right: .5em;
+     text-decoration: none;
+     vertical-align: super;
+}
+
+ol.footnote {
+     border-top: 1px #a05c21 solid;
+     font-size: .8em;
+     margin-top: 5em;
+     margin-bottom: 0;
+}
+
+.ref1 {
+     font-size: .95em;
+     margin: .5em 0 0 1.5em;
+     text-indent: -1em;
+}
+
+.name {
+     font-weight: bold;
+     margin: 0;
+     text-indent: ;
+}
+
+hr {
+     border-top: 1px solid #8e8e8e;
+     border-bottom: ;
+     border-right: ;
+     border-left: ;
+     height: 0;
+     margin: 1.5em 0;
+}
+
+.pic {
+     text-align: center;
+     margin: 1.5em auto;
+     width: 98%;
+}
+
+.picop {
+     text-align: center;
+     margin: auto;
+     width: 98%;
+}
+
+.picv {
+     text-align: center;
+     margin: 1.5em auto;
+     width: 70%;
+}
+
+.picv img, .picop img, .pic img, .wc img, .w img, .pics img, .picf img {
+     max-width: 100%;
+}
+
+.caption {
+     display: block;
+     color: #5e5e5e;
+     line-height: 1.25em;
+     font-size: .65em;
+     text-align: left;
+     text-indent !important: ;
+     padding: ;
+     margin-left: 1em;
+     margin-bottom: .75em;
+}
