@@ -70,7 +70,7 @@ p {
 /*居中标题*/
 .title {
 	font-family: "my",华文中宋,serif;
-	font-size: 130%;
+	font-size: 135%;
 	color: #650300;
 	text-shadow: 0 1 0px #fff;
 	font-weight: normal;
@@ -80,7 +80,7 @@ p {
 
 .title2 {
 	font-family: "my",华文中宋,serif;
-	font-size: 130%;
+	font-size: 135%;
 	color: #766D5F;
 	text-shadow: 0 1 0px #fff;
 	font-weight: normal;
@@ -122,7 +122,7 @@ p {
 .stitle {
 	font-family: "my",华文中宋,serif;
 	font-size: 90%;
-	color:#1E2F1E;
+	color:#971b10;
 	text-shadow: 0 0 1px #eee;
 }
 
@@ -201,7 +201,7 @@ span.times {
 
 .chapter2 {
     font-family: "DK-XIAOBIAOSONG",华文中宋,serif;
-	font-size:120%;
+	font-size:125%;
 	color: #471023;
 	text-shadow: 0 1 1px #fff;
 	text-indent:0em;
