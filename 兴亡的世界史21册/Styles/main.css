@@ -293,6 +293,13 @@ q {
 	duokan-text-indent: 0em;
 }
 
+.cp-indent {
+	font-family:"DK-CODE","DK-XIHEITI",细黑体,"xihei",sans-serif;
+	font-size: 70%;
+	color: #412938;
+	text-align: left;
+}
+
 /*顶格，戏剧人名*/
 .xchar {
 	font-family: "my",华文中宋,serif;
@@ -328,6 +335,11 @@ q {
 .block {
 	font-family:"DK-CODE","DK-XIHEITI",细黑体,"xihei",sans-serif;
 	font-size: 85%;
+	color: #557169;
+}
+
+.block-normal {
+	font-family:"DK-CODE","DK-XIHEITI",细黑体,"xihei",sans-serif;
 	color: #557169;
 }
 
@@ -679,36 +691,6 @@ span.text-italic {
 	font-style: italic;
 }
 
-
-div.boxBlock-650{
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0em;
-    margin-right: 0em;
-    text-align: left;
-	vertical-align:middle;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 0.5em;
-   padding-right: 0.5em;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-radius: 0.5em;
-    border-style: solid;
-    border-color: #000000;
-    background-color: #ecf0f1;
-}
-
-p.noindent-boxContent-1-3{
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 0em;
-    margin-right: 0em;
-    text-indent: 0em;
-    line-height: 1.5em;
-    font-family:"pala", "DK-KAITI",楷体, "kt", serif;
-    text-align: justify;
-    font-size: 1em;
+.gs {
+	color: #9b9b9b;
 }
