@@ -10,15 +10,6 @@
      width: 50%;
 }
 
-ol, ul {
-     margin: 1em auto;
-}
-
-li {
-     line-height: 1.6em;
-     margin: .25em auto;
-}
-
 a.footnote {
      color: #a05c21;
      font-size: .6em;
