@@ -1,8 +1,5 @@
 1. 生僻字：𠺕𤞑
-2. <h2>接<h3>上下间距
 3. 注释
-4. 图片
-5. css调整
-6. <i><strong><b>
+6. <strong><b>
 7. <div class="kai"
 8. copyright
