@@ -1,9 +1,3 @@
-.picf {
-     text-align: center;
-     margin: 3em auto 0;
-     width: 98%;
-}
-
 .pics {
      text-align: center;
      margin: 1.5em auto;
@@ -16,19 +10,13 @@
      width: 98%;
 }
 
-.picop {
-     text-align: center;
-     margin: auto;
-     width: 98%;
-}
-
 .picv {
      text-align: center;
      margin: 1.5em auto;
      width: 70%;
 }
 
-.picv img, .picop img, .pic img, .wc img, .w img, .pics img, .picf img {
+.picv img, .pic img, .wc img, .w img, .pics img,  {
      max-width: 100%;
 }
 
