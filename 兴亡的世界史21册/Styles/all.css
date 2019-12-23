@@ -10,13 +10,7 @@
      width: 98%;
 }
 
-.picv {
-     text-align: center;
-     margin: 1.5em auto;
-     width: 70%;
-}
-
-.picv img, .pic img, .wc img, .w img, .pics img,  {
+.pic img, .wc img, .w img, .pics img,  {
      max-width: 100%;
 }
 
