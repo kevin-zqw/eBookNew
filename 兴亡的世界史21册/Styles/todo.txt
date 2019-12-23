@@ -1,7 +1,6 @@
 1. 生僻字：𠺕𤞑
-2. 注释
 3. pretxt
 4. copyright
-5. 目录
 6. well-formed
 7. report link
+9. 小括号和左右括号kaiti
