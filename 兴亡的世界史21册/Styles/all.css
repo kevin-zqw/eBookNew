@@ -1,16 +1,10 @@
-.pics {
-     text-align: center;
-     margin: 1.5em auto;
-     width: 50%;
-}
-
 .pic {
      text-align: center;
      margin: 1.5em auto;
      width: 98%;
 }
 
-.pic img, .wc img, .w img, .pics img,  {
+.pic img{
      max-width: 100%;
 }
 
