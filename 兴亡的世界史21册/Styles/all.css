@@ -10,22 +10,6 @@
      width: 50%;
 }
 
-a.footnote {
-     color: #a05c21;
-     font-size: .6em;
-     line-height: 1em;
-     margin-right: .5em;
-     text-decoration: none;
-     vertical-align: super;
-}
-
-ol.footnote {
-     border-top: 1px #a05c21 solid;
-     font-size: .8em;
-     margin-top: 5em;
-     margin-bottom: 0;
-}
-
 .pic {
      text-align: center;
      margin: 1.5em auto;
