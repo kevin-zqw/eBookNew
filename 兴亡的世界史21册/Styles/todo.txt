@@ -1,5 +1,7 @@
 1. 生僻字：𠺕𤞑
-3. 注释
-6. <strong><b>
-7. <div class="kai"
-8. copyright
+2. 注释
+3. pretxt
+4. copyright
+5. 目录
+6. well-formed
+7. report link

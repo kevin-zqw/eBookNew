@@ -239,6 +239,11 @@ span.times {
 	color: #242343;
 }
 
+strong {
+	font-family:"pala", "DK-KAITI",楷体, "kt", serif;
+	color: #242343;
+}
+
 .kaiti {
 	font-family:"pala", "DK-KAITI",楷体, "kt", serif;
 }
