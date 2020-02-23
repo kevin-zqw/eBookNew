@@ -1,0 +1,137 @@
+.calibre {
+    display: block;
+    font-size: 1.29167em;
+    line-height: 1.618em;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: justify;
+    word-wrap: break-word;
+    margin: 0 5pt
+    }
+.calibre1 {
+    color: #00C
+    }
+.calibre2 {
+    display: block
+    }
+.calibre3 {
+    height: auto;
+    vertical-align: middle;
+    width: 1.3em
+    }
+.calibre4 {
+    font-weight: bold
+    }
+.calibre5 {
+    display: block;
+    line-height: 1.2
+    }
+.calibre6 {
+    height: auto;
+    line-height: 1.2;
+    vertical-align: middle;
+    width: 1.3em
+    }
+.contents {
+    display: block;
+    margin-left: 0
+    }
+.contents-title {
+    display: block;
+    font-size: 1.54839em;
+    font-weight: bold;
+    letter-spacing: 1em;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    text-align: center;
+    border-bottom: #000 dotted 1.5px
+    }
+.contents1 {
+    display: block;
+    margin-left: 2em
+    }
+.normaltext {
+    display: block;
+    text-indent: 2em;
+    margin: 20pt 0
+    }
+.normaltext1 {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-indent: 0;
+    margin: 0
+    }
+.normaltext2 {
+    display: block;
+    font-size: 0.77419em;
+    text-indent: 2em;
+    margin: 0
+    }
+.normaltext3 {
+    display: block;
+    font-family: STKai, "MKai PRC", Kai;
+    font-size: 0.77419em;
+    text-indent: 2em;
+    margin: 0
+    }
+.normaltext4 {
+    display: block;
+    font-family: STKai, "MKai PRC", Kai;
+    font-size: 0.77419em;
+    text-align: right;
+    text-indent: 0;
+    margin: 0
+    }
+.normaltext5 {
+    display: block;
+    font-family: STKai, "MKai PRC", Kai;
+    text-indent: 0;
+    margin: 0
+    }
+.note {
+    display: block;
+    font-size: 0.77419em;
+    font-weight: bold;
+    text-indent: 2em;
+    margin: 1em 0 0.5em
+    }
+.subtitle {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-indent: 0;
+    margin: 0.5em 0
+    }
+.suptext {
+    font-size: 0.48387em;
+    line-height: 1.2;
+    vertical-align: super
+    }
+.suptext1 {
+    font-size: 0.45455em;
+    line-height: normal;
+    vertical-align: super
+    }
+.title {
+    display: block;
+    font-size: 1.54839em;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    margin: 1em 0
+    }
+.title1 {
+    display: block;
+    font-size: 1.41935em;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    margin: 1em 0
+    }
+.tpzz {
+    height: 1.2em;
+    vertical-align: middle;
+    width: auto
+    }

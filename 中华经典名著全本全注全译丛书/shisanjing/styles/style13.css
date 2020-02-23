@@ -1,0 +1,635 @@
+@font-face {
+	font-family: "CNKaiti";
+	font-style:normal;
+	font-weight:normal;
+	src: url(../Fonts/font00768.ttf);
+}
+
+
+body { 	font-size: 1em; 	text-align: justify; 	line-height: 1.2em; 	margin: 10px; }
+ a { 	text-decoration: none; }
+p { 	text-indent: 2em; }
+p.kindle-cn-copyright-text { 	line-height: 1.618em; 	text-indent: 0em; }
+
+h1.kindle-cn-heading-1 { 	border-bottom: 2px dashed #c7c7c7; 	border-top: 2px dashed #c7c7c7; 	padding: 0.75em 0 0.75em 0; 	width: 100%; 	page-break-before: always; 	font-size: 3em; 	font-family:"MYing Hei S", Hei;
+}
+h1.kindle-cn-heading-2 {
+	font-size: 3em;
+	font-family:"MYing Hei S", Hei;
+	border-bottom: 2px dashed #c7c7c7;
+	margin-bottom: -0em;
+	width: 100%;
+	page-break-before: always;
+}
+
+h1.kindle-cn-heading1 {
+	padding: 0.75em 0 0.75em 0;
+	width: 100%;
+	page-break-before: always;
+	font-size: 2em;
+	font-family:"MYing Hei S", Hei;
+	text-align: center;
+	line-height: 1.2em;
+	margin-top: 2em;
+	margin-bottom: 3em;
+}
+
+
+
+h2.kindle-cn-heading2 {
+	width: 100%;
+	font-size: 1.75em;
+	margin-left: 0em;
+	margin-top: 1.5em;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+h3.kindle-cn-heading3 {
+	font-size: 1.2em;
+	margin-left: 1.0em;
+}
+
+h4 {
+	font-size: 1.0em;
+	margin-left: 2.2em;
+}
+/** 页眉标题 **/
+div.kindle-cn-page-header-outer{
+	border-bottom: 1px solid #FF9900;
+	margin-bottom: 0em;
+	width: 100%;
+}
+
+h1.kindle-cn-heading-3{
+	padding:0.4em;
+	margin:0;
+	width: 100%;
+	color: white;
+	background-color:#FF9900;
+	display: inline;
+	font-size:0.8em;
+	page-break-before: always;
+}
+
+/** 日语 **/
+:lang(ja) {
+    font-family: TBGothic, TBMincho, TBGothic, HYGothic, TsukushiMincho;
+}
+
+/** 签名文字居右 **/
+p.kindle-cn-signature {
+	text-align: right;
+}
+
+/** 首字下沉 **/
+span.kindle-cn-dropcap {
+	float:left;
+	font-size:2.85em;
+	line-height: 1em;
+	padding:0em 0em 0em 0em;
+	text-indent:0
+}
+p.kindle-cn-dropcap{
+	text-indent:0em;
+}
+/** 生僻字 **/
+img.kindle-cn-inline-character{
+	width: 0.8em;
+	vertical-align:middle;
+}
+
+/** 段落里的引用部分 **/
+p.kindle-cn-ref {
+	margin:0em 1em 0em 1em;
+	font-family:STKai, "MKai PRC", Kai;
+}
+
+/** 多字体 **/
+/** ----------------------------------------------- **/
+
+/** 黑体文字 **/
+p.kindle-cn-hei {
+	font-family: "MYing Hei S", Hei;
+}
+
+/** 宋体文字 **/
+p.kindle-cn-song {
+	font-family: STSong, "Song S", Song;
+}
+
+/** 楷体文字 **/
+p.kindle-cn-kai {
+	font-family: STKai, "MKai PRC", Kai;
+}
+
+/** 问答 **/
+span.kindle-cn-qa {
+	font-weight: bold;
+	color: #EE1475;
+	font-family: "MYing Hei S", Hei;
+}
+
+/** ----------------------------------------------- **/
+/** 列表样式 **/
+/** ----------------------------------------------- **/
+
+/** 无序列表样式 **/
+/** 圈标签 **/
+ul.kindle-cn-ul-disc {
+	list-style-type: disc;
+}
+
+/** 圆环标签 **/
+ul.kindle-cn-ul-circle {
+	list-style-type: circle;
+}
+
+/** 方形标签 **/
+ul.kindle-cn-ul-square {
+	list-style-type: square;
+}
+
+
+/** 有序列表样式 **/
+/** 此样式会显示1. 2. 3. **/
+ol.kindle-cn-ol-decimal {
+	list-style-type: decimal;
+}
+
+/** 此样式会显示i. ii. iii. **/
+ol.kindle-cn-ol-lroman {
+	list-style-type: lower-roman;
+}
+
+/** 此样式会显示I. II. III. **/
+ol.kindle-cn-ol-uroman {
+	list-style-type: upper-roman;
+}
+
+/** 此样式会显示a. b. c. **/
+ol.kindle-cn-ol-lalpha {
+	list-style-type: lower-alpha;
+}
+
+
+/** 考试类样式 **/
+/*选择题*/
+p.kindle-cn-exam-choice{
+	text-indent: 0em;
+	font-size: 1em;
+	margin-left: 2em;
+}
+
+/** 行间图 **/
+img.kindle-cn-inline-image {
+	height: 1em;
+	vertical-align: middle;
+	margin-left: -0.1em ;
+	margin-right: -0.1em  ;
+}
+/* 根据原文调整图片大小 plus1*/
+img.kindle-cn-inline-image2 {
+	height: 2em;
+	vertical-align: middle;
+	margin-left: -0.1em ;
+	margin-right: -0.1em  ;
+}
+
+.kindle-cn-image {
+	text-align: center;
+	margin: 10px;
+	page-break-inside: avoid;
+	width: 100%;
+}
+
+.kindle-cn-caption {
+	text-align: center;
+	font-size: 90%;
+}
+
+
+
+
+/** ----------------------------------------------- **/
+/** 表格样式设定 **/
+/** ----------------------------------------------- **/
+
+
+/** ----------------------------- **/
+/** 横向表头 **/
+/** ----------------------------- **/
+
+table.kindle-cn-table-body {
+	margin: 1em auto 1em auto;
+	border-style: solid solid none none;
+	width: 100%;
+	border-width: 1px;
+}
+
+td.kindle-cn-table-th{
+	vertical-align: middle;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: none none solid solid;
+	border-width: 1px;
+	font-weight: bold;
+	text-align:center;
+}
+td.kindle-cn-table-dg1 {
+	vertical-align: middle;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid solid solid solid;
+	border-width: 1px;
+	text-align:center;
+}
+/** ----------------------------- **/
+
+
+
+
+/** ----------------------------- **/
+/** 纵向表头 **/
+/** ----------------------------- **/
+table.kindle-cn-table-body {
+	margin: 1em auto 1em auto;
+	border-style: solid solid none none;
+	width: 100%;
+	border-width: 1px;
+}
+
+/** 普通单元格1 **/
+td.kindle-cn-table-dg1 {
+	vertical-align: middle;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: none none solid solid;
+	border-width: 1px;
+	text-align:center;
+}
+
+/** 普通单元格2 **/
+td.kindle-cn-table-dg2 {
+	vertical-align: middle;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: none none solid solid;
+	border-width: 1px;
+	text-align: left;
+}
+
+/** ----------------------------- **/
+
+
+
+
+/** ----------------------------- **/
+/** 带底色无边框表格 **/
+/** ----------------------------- **/
+table.kindle-cn-bodyt {
+	margin: 1em 0em 0.5em 0em;
+	border-style: solid none solid none;
+	border-width: 2px;
+	border-color: #000000;
+}
+
+td.kindle-cn-table-rt {
+	vertical-align: middle;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	background-color: #c7c7c7;
+	text-align: center;
+	font-weight: bold;
+}
+
+/** 普通单元格 **/
+td.kindle-cn-table-rn {
+	vertical-align: top;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	background-color: #DCDCDC;
+	text-align:left;
+}
+
+/** ----------------------------- **/
+
+
+
+/** ----------------------------- **/
+/** 内部无边框表格 **/
+/** ----------------------------- **/
+
+table.kindle-cn-table-bodyt-1 {
+	margin: 1em 0em 1em 0em;
+	border-style: solid none solid none;
+	border-width: 2px;
+}
+
+td.kindle-cn-table-rt1 {
+	vertical-align: middle;
+	border-style: none none solid none;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-width: 1px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/** 普通单元格 **/
+td.kindle-cn-table-rn1 {
+	vertical-align: top;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	text-align:left;
+}
+/** ----------------------------- **/
+
+/** ----------------------------------------------- **/
+/** 边框样式 **/
+/** ----------------------------------------------- **/
+/** ----------------------------- **/
+/** 阴影边框样式 **/
+/** ----------------------------- **/
+div.kindle-cn-frame-shadow{
+	border: 1px solid #146eb4;
+	box-shadow: 5px 5px 5px #c7c7c7;
+	width: 95%;
+	padding: 0.3em;
+	margin-left: 2%;
+	margin-right: 3%;
+}
+
+
+/** 边框内文字无缩进 **/
+p.kindle-cn-noindent{
+	text-indent:0
+}
+
+/** ----------------------------- **/
+/** 提示框 **/
+/** ----------------------------- **/
+div.kindle-cn-tip-box {
+	padding:1em 1em 1em 1em;
+	margin: 1em 0 1em 0em;
+	background-color: #DCDCDC;
+	font-family:STKai, "MKai PRC", Kai;
+	line-height:1.5em;
+}
+
+/** ----------------------------- **/
+/** 直角框 **/
+/** ----------------------------- **/
+div.kindle-cn-frame-zhijiao {
+	font-size: 1em;
+	padding: 0.5em;
+	margin: 1.5em 0em 1.5em 0em;
+	border-style: solid solid solid solid;
+	border-width: 1px;
+}
+/** ----------------------------- **/
+/** 圆角框 **/
+/** ----------------------------- **/
+div.kindle-cn-frame-yuanjiao{
+	font-size: 1em;
+	padding: 0.5em;
+	margin: 1.5em 0em 1.5em 0em;
+	border-style: solid solid solid solid;
+	border-width: 1px;
+	border-radius: 0.5em;
+}
+
+
+
+/** ----------------------------- **/
+
+
+/** ----------------------------------------------- **/
+/** 文字特殊样式 **/
+/** ----------------------------------------------- **/
+
+/** 加粗 **/
+span.kindle-cn-bold{
+font-weight: bold;
+}
+
+/** 斜体字 **/
+span.kindle-cn-italic{
+font-style: italic;
+}
+
+/** 斜体加粗字体**/
+span.kindle-cn-bold-italic{
+font-weight: bold;
+font-style: italic;
+}
+
+/** 下划线**/
+span.kindle-cn-underline{
+text-decoration: underline;
+}
+
+/** 删除线 **/
+ Span.kindle-cn-strike{
+text-decoration: line-through;
+}
+
+/** 双下划线 **/
+span.kindle-cn-specialtext-double{
+	border-bottom:0.2em double;
+}
+
+/** 点线式边框 **/
+span.kindle-cn-specialtext-dot{
+	border-style:dotted;
+}
+
+/** 破折线式边框 **/
+span.kindle-cn-specialtext-dash{
+	border-style:dashed;
+	border-width: 1px;
+}
+
+/** 直线式边框 **/
+span.kindle-cn-specialtext-solid{
+	border-style:solid;
+	border-width: 1px;
+}
+
+/* 数学上标字体 */
+span.math-super {
+	font-size: 0.7em;
+	vertical-align: super;
+}
+
+/* 数学上标倾斜字体 */
+span.math-super-italic {
+	font-size: 0.7em;
+	font-style: italic;
+	vertical-align: super;
+}
+
+/* 数学下标字体 */
+span.math-sub {
+	font-size: 0.7em;
+	vertical-align: sub;
+}
+
+
+/*点号 */
+span.kindle-cn-dotundertext{
+-webkit-text-emphasis-style:dot;
+-moz-text-emphasis-style:dot;
+-ms-text-emphasis-style:dot;
+text-emphasis-style:dot;
+-webkit-text-emphasis-position:under;
+-moz-text-emphasis-position:under;
+-ms-text-emphasis-position:under;
+text-emphasis-position:under;
+}
+
+/**段落样式**/
+/*无缩进*/
+p.kindle-cn-para-no-indent{
+	text-indent: 0em;
+}
+/*2em 无缩进*/
+div.kindle-cn-para-2em-indent{
+	margin-left: 2em;
+}
+
+
+/*居左*/
+p.kindle-cn-para-left{
+	text-align: left;
+	margin-top: 0em;
+	margin-bottom: 0em;
+
+}
+/*居中*/
+p.kindle-cn-para-center{
+	text-align: center;
+	text-indent: 0em;
+}
+
+p.kindle-cn-para-center1{
+	text-align: center;
+	text-indent: 0em;
+	font-size: 2em;
+}
+
+/*居右*/
+p.kindle-cn-para-right{
+	text-align: right;
+}
+
+/*居中*/
+p.kindle-cn-para-align-center{
+	text-align:center;
+}
+
+
+/**音标区块不使用粗体，嵌入西文字体。 **/
+span.kindle-cn-eng-yinbiao
+{
+	font-family:yinbiao;
+}
+/**单词区块使用粗体，字体为默认字体。 **/
+p.kindle-cn-bold
+{
+	font-weight: bold;
+}
+
+
+/** ----------------------------- **/
+/** 诗歌**/
+/** ----------------------------- **/
+p.kindle-cn-poem-left {
+	margin-left: 2em;
+	font-family:STKai, "MKai PRC", Kai;
+	text-indent: 0em;
+
+}
+p.kindle-cn-poem-center {
+	font-family:STKai, "MKai PRC", Kai;
+	text-align: center;
+	text-indent:0em;
+}
+
+/** 计算机类样式 **/
+/** ------------------------------------------------------------------------------------------------------ **/
+/** 行间代码 **/
+code.kindle-cn-computer-code{
+	font-family: monospace;
+}
+
+p.kindle-cn-caption{
+ 	text-align: center;
+ 	text-indent: 0em;
+ 	font-size: 90%;
+ }
+
+ p.footnote{
+	text-align: left;
+	font-size: 95%;
+	margin-left: 4em;
+	text-indent: -1em;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+
+span.CNother
+{
+	  font-family: "CNKaiti";
+}
+
+/* Global setting */
+/* 全局设定 */
+body {
+	line-height: 1.618em;
+}
+
+/* TOC link color */
+/* 目录条目链接颜色 */
+a {
+	color: #0000CC;
+}
+
+/* TOC Title */
+/* 目录标题 */
+.kindle-cn-toc-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+	letter-spacing: 1em;
+    text-align: center;
+	border-bottom: 1.5px dotted #000000;
+}
+
+/* Level 1 TOC */
+/* 一级标题 */
+.kindle-cn-toc-level-1 {
+    margin-left: 0em;
+}
+
+/* Level 2 TOC */
+/* 二级标题 */
+.kindle-cn-toc-level-2 {
+    margin-left: 2em;
+}
+
+/* Level 3 TOC */
+/* 三级标题 */
+.kindle-cn-toc-level-3 {
+    margin-left: 3em;
+}
+
+/* Level 4 TOC */
+/* 四级标题 */
+.kindle-cn-toc-level-4 {
+    margin-left: 4em;
+}
+
+/* Level 5 TOC */
+/* 五级标题 */
+.kindle-cn-toc-level-5 {
+    margin-left: 2em;
+}
+
+/* Level 6 TOC */
+/* 六级标题 */
+.kindle-cn-toc-level-6 {
+    margin-left: 2em;
+}
