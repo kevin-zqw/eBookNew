@@ -67,7 +67,7 @@ def insert_notes(base_dir, filename):
     with open(path, 'r', encoding='utf-8') as file:
         all_lines = file.readlines()
 
-    note_regex = r'<p class="kindle[^"<>]*?">(\[\d+\])(.*?)</p>'
+    note_regex = r'<p class="kindle[^"<>]*?">(\[\d+\])<span class="[^"<>]*?">(.*?)</span></p>'
     header = r'>【注释】<'
 
     content = ''
@@ -82,7 +82,7 @@ def insert_notes(base_dir, filename):
 
             index = matches[0][0]
             note = matches[0][1]
-            sup_tag = f'<sup>{index}</sup>'
+            sup_tag = f'<span class="math-super">{index}</span>'
             replace = f'【【{note}】】'
 
             if content.count(sup_tag) == 1:
