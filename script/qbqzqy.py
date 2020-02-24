@@ -100,7 +100,7 @@ def insert_notes(base_dir, filename):
 
 
 def insert_all_notes():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html/02_shangshu'
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html/03_shijing'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
