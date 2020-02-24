@@ -67,8 +67,8 @@ def insert_notes(base_dir, filename):
     with open(path, 'r', encoding='utf-8') as file:
         all_lines = file.readlines()
 
-    note_regex = r'<p class="fs">(\[\d+\])(.*?)</p>'
-    header = r'<p>【<b>注释</b>】</p>'
+    note_regex = r'<p class="kindle[^"<>]*?">(\[\d+\])(.*?)</p>'
+    header = r'>【注释】<'
 
     content = ''
     changed = False
@@ -100,7 +100,7 @@ def insert_notes(base_dir, filename):
 
 
 def insert_all_notes():
-    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html/01_zhouyi'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
@@ -390,11 +390,11 @@ def check_merge():
 
 if __name__ == '__main__':
     # wenxuan_split_all()
-    # insert_all_notes()
+    insert_all_notes()
     # process_heading_1()
     # process_heading_5()
     # rename_all_files()
     # move_no_need_merge_files()
     # merge_all_text()
     # process_center_block()
-    check_merge()
+    # check_merge()
