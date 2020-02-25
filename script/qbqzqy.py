@@ -67,7 +67,7 @@ def insert_notes(base_dir, filename):
     with open(path, 'r', encoding='utf-8') as file:
         all_lines = file.readlines()
 
-    note_regex = r'<p class="kindle\-cn\-[^"<>]*?">(\[\d+\])<span class="[^"<>]*?">(.*?)</span></p>'
+    note_regex = r'<p class="fuck">(.*?)___(.*?)</p>'
     header = r'>【注释】<'
 
     content = ''
@@ -100,7 +100,7 @@ def insert_notes(base_dir, filename):
 
 
 def insert_all_notes():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html/03_shijing'
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html/04_zhouli'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
