@@ -437,14 +437,22 @@ def check_merge():
 def replace_class():
     base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
     for filename in os.listdir(base_dir):
-        if not filename.endswith('.xhtml'):
+        if not filename.startswith('v01'):
             continue
         file_path = os.path.join(base_dir, filename)
         with open(file_path, 'r+', encoding='utf-8') as file:
-            contents = file.read()
-            if '"chapter"' in contents:
-                if 'style="' in contents:
-                    print(filename)
+            all_lines = file.readlines()
+
+        tijie_found = False
+        for line in all_lines:
+            if '【题解】' in line:
+                tijie_found = True
+                continue
+
+            if tijie_found and len(line.strip()) > 0:
+                print(line)
+                print()
+                break
 
 
 if __name__ == '__main__':
