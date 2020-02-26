@@ -434,8 +434,21 @@ def check_merge():
             os.remove(file_path)
 
 
+def replace_class():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r+', encoding='utf-8') as file:
+            contents = file.read()
+            if '"chapter"' in contents:
+                if 'style="' in contents:
+                    print(filename)
+
+
 if __name__ == '__main__':
-    wenxuan_split_all()
+    # wenxuan_split_all()
     # insert_all_notes()
     # process_heading_1()
     # process_heading_5()
@@ -444,3 +457,4 @@ if __name__ == '__main__':
     # merge_all_text()
     # process_center_block()
     # check_merge()
+    replace_class()
