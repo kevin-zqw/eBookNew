@@ -8,41 +8,75 @@ import sys
 import collections
 
 
-def wenxuan_split(base_dir, filename):
-    dest_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html_split'
+def wenxuan_split(base_dir, dest_dir, filename):
+    print(filename)
+
     src_path = os.path.join(base_dir, filename)
     name_no_ext = os.path.splitext(filename)[0]
     extension = '.xhtml'
 
     with open(src_path, 'r', encoding='utf-8') as file:
         content = file.read()
+        file.seek(0)
+        all_lines = file.readlines()
 
     h1_tag = '<h1'
+    h2_tag = '<h2'
     h3_tag = '<h3'
-    h4_tag = '<h4'
-    h5_tag = '<h5'
-    if h1_tag in content and h3_tag in content:
-        body = '<body>'
-        prefix = content.split(body)[0] + body + '\n'
-        postfix = '</body>\n</html>'
 
-        tag = h3_tag
-        parts = content.split(tag)
-        last_index = len(parts) - 1
-        for (index, pt) in enumerate(parts):
-            if index == 0:
-                html = pt + postfix
-            elif index == last_index:
-                html = prefix + tag + pt
+    count_h1 = content.count(h1_tag)
+    count_h2 = content.count(h2_tag)
+    count_h3 = content.count(h3_tag)
+
+    body_start = '<body>'
+    body_end = '</body>'
+    prefix = content.split(body_start)[0] + body_start + '\n'
+    postfix = f'{body_end}\n</html>'
+
+    need_split = True
+    if count_h1 + count_h2 + count_h3 <= 1:
+        need_split = False
+    if '"chapter"' in content:
+        need_split = False
+
+    if need_split:
+        sub_lines = []
+        body_start_matched = False
+        header_matched = False
+        index = 1
+        for line in all_lines:
+            if body_start in line:
+                sub_lines = []
+                body_start_matched = True
+                continue
+
+            if not body_start_matched:
+                continue
+
+            if body_end in line:
+                index_str = '_%03d' % index
+                index += 1
+                dest_name = name_no_ext + index_str + extension
+                dest_path = os.path.join(dest_dir, dest_name)
+                with open(dest_path, 'w', encoding='utf-8') as file:
+                    file.write(prefix + ''.join(sub_lines) + postfix)
+                    file.truncate()
+                break
+            elif h1_tag in line or h2_tag in line or h3_tag in line:
+                if header_matched:
+                    index_str = '_%03d' % index
+                    index += 1
+                    dest_name = name_no_ext + index_str + extension
+                    dest_path = os.path.join(dest_dir, dest_name)
+                    with open(dest_path, 'w', encoding='utf-8') as file:
+                        file.write(prefix + ''.join(sub_lines) + postfix)
+                        file.truncate()
+                    sub_lines = [line]
+                else:
+                    header_matched = True
+                    sub_lines.append(line)
             else:
-                html = prefix + tag + pt + postfix
-
-            index_str = '_%03d' % index
-            dest_name = name_no_ext + index_str + extension
-            dest_path = os.path.join(dest_dir, dest_name)
-            with open(dest_path, 'w', encoding='utf-8') as file:
-                file.write(html)
-                file.truncate()
+                sub_lines.append(line)
     else:
         dest_path = os.path.join(dest_dir, filename)
         with open(dest_path, 'w', encoding='utf-8') as file:
@@ -51,14 +85,27 @@ def wenxuan_split(base_dir, filename):
 
 
 def wenxuan_split_all():
-    base_dir = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
-    all_files = sorted(os.listdir(base_dir))
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html'
+    all_sub_dirs = [name for name in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, name))]
+    for dir_path in all_sub_dirs:
+        wenxuan_split_dir(os.path.join(base_dir, dir_path))
+        break
+
+
+def wenxuan_split_dir(dir_path):
+    all_files = sorted(os.listdir(dir_path))
+
+    dest_dir = os.path.join(dir_path, 'html_split')
+    if os.path.exists(dest_dir) and os.path.isdir(dest_dir):
+        shutil.rmtree(dest_dir)
+    if not os.path.exists(dest_dir):
+        os.mkdir(dest_dir)
 
     for filename in all_files:
         if not filename.endswith('.xhtml'):
             continue
 
-        wenxuan_split(base_dir, filename)
+        wenxuan_split(dir_path, dest_dir, filename)
 
 
 def insert_notes(base_dir, filename):
@@ -389,8 +436,8 @@ def check_merge():
 
 
 if __name__ == '__main__':
-    # wenxuan_split_all()
-    insert_all_notes()
+    wenxuan_split_all()
+    # insert_all_notes()
     # process_heading_1()
     # process_heading_5()
     # rename_all_files()
