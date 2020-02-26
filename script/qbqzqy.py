@@ -440,19 +440,52 @@ def replace_class():
         if not filename.startswith('v01'):
             continue
         file_path = os.path.join(base_dir, filename)
-        with open(file_path, 'r+', encoding='utf-8') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             all_lines = file.readlines()
 
+        result_lines = []
         tijie_found = False
+        tijie_end = False
+        class_found = False
+        tijie_class = 'class="kindle-cn-kai"'
+        replace_class= 'class="pretxt"'
+        need_save = False
+        append_yuanwen = False
+
         for line in all_lines:
-            if '【题解】' in line:
-                tijie_found = True
+            if tijie_end:
+                result_lines.append(line)
                 continue
 
-            if tijie_found and len(line.strip()) > 0:
-                print(line)
-                print()
-                break
+            if '【题解】' in line:
+                tijie_found = True
+                result_lines.append(line)
+                continue
+
+            if not tijie_found:
+                result_lines.append(line)
+                continue
+
+            if class_found:
+                if len(line.strip()) == 0:
+                    result_lines.append(line)
+                elif tijie_class in line:
+                    result_lines.append(line.replace(tijie_class, replace_class))
+                else:
+                    tijie_end = True
+                    if append_yuanwen:
+                        result_lines.append('<p class="yuanwen"><br/></p>\n')
+                    result_lines.append(line)
+                    need_save = True
+            else:
+                if tijie_class in line:
+                    class_found = True
+                    result_lines.append(line.replace(tijie_class, replace_class))
+                else:
+                    result_lines.append(line)
+        if need_save:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(''.join(result_lines))
 
 
 if __name__ == '__main__':
