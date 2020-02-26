@@ -16,6 +16,9 @@
 ** <table class="kindle-cn-table-body">
 ** v04的标题h1，需要拆分
 ** v04: normaltext3是译文；normaltext5是引用材料
+** v06: kindle-cn-para-no-indent, kindle-cn-para-2em-indent, <br/><br/>
+** v06: <br/><br/></p>后面是原文
+** v13: 尔雅的最后一个链接要重新生成？
 
 
 十三经：
