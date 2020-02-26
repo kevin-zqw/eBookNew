@@ -437,7 +437,7 @@ def check_merge():
 def replace_class():
     base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
     for filename in os.listdir(base_dir):
-        if not filename.startswith('v02'):
+        if not filename.startswith('v03'):
             continue
         file_path = os.path.join(base_dir, filename)
         with open(file_path, 'r', encoding='utf-8') as file:

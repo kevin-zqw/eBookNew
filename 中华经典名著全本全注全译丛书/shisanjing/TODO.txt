@@ -13,6 +13,9 @@
 ** 春秋左传【经】【传】
 ** <p class="yuanwen"><br/></p>：原文标识
 ** <p class="zhengwen-start">
+** <table class="kindle-cn-table-body">
+** v04的标题h1，需要拆分
+** v04: normaltext3是译文；normaltext5是引用材料
 
 
 十三经：
