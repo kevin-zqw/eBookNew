@@ -89,7 +89,6 @@ def wenxuan_split_all():
     all_sub_dirs = [name for name in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, name))]
     for dir_path in all_sub_dirs:
         wenxuan_split_dir(os.path.join(base_dir, dir_path))
-        break
 
 
 def wenxuan_split_dir(dir_path):
