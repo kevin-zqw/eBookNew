@@ -1,3 +1,8 @@
+['CN_Kindle_Kai', 'CNother', 'calibre4', 'calibre5', 'chapter', 'font2', 'inline', 'intitle', 'kindle-cn-bold', 'kindle-cn-heading-1', 'kindle-cn-heading1', 'kindle-cn-heading2', 'kindle-cn-heading3', 'kindle-cn-kai', 'kindle-cn-para-2em-indent', 'kindle-cn-para-center', 'kindle-cn-para-left', 'kindle-cn-para-no-indent', 'kindle-cn-ref', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'lk', 'math-super', 'normaltext3', 'normaltext5', 'noteContent', 'pretxt', 'rm', 'sigil_not_in_toc', 'smy-sm', 'smy-zz', 'title', 'title1', 'ytxt', 'yuanwen', 'zhengwen-start']
+
+['margin-bottom:2em', 'margin-bottom:2em;margin-top:2em', 'margin-top:2em', 'margin-top:2em;margin-bottom:2em', 'margin-top:6em']
+
+
 ** 合并注释
 ** 孝经《前言》样式、引文、倒数第二段德文Times字体
 ** v13_image00002, duokan-single-image

@@ -488,6 +488,28 @@ def replace_class():
                 file.write(''.join(result_lines))
 
 
+def stat_css():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+
+    all_classes = set()
+    all_styles = set()
+
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        class_matches = re.findall(r'class="([^"]*?)"', content)
+        style_matches = re.findall(r'style="([^"]*?)"', content)
+        for cls in class_matches:
+            all_classes.update(cls.split(' '))
+        all_styles.update(style_matches)
+
+    print(sorted(all_classes))
+    print(sorted(all_styles))
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -499,3 +521,4 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     replace_class()
+    # stat_css()
