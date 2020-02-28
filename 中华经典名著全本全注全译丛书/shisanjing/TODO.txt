@@ -1,4 +1,4 @@
-['CN_Kindle_Kai', 'CNother', 'calibre4', 'calibre5', 'chapter', 'font2', 'inline', 'intitle', 'kindle-cn-bold', 'kindle-cn-heading-1', 'kindle-cn-heading1', 'kindle-cn-heading2', 'kindle-cn-heading3', 'kindle-cn-kai', 'kindle-cn-para-2em-indent', 'kindle-cn-para-center', 'kindle-cn-para-left', 'kindle-cn-para-no-indent', 'kindle-cn-ref', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'lk', 'math-super', 'normaltext3', 'normaltext5', 'noteContent', 'pretxt', 'rm', 'sigil_not_in_toc', 'smy-sm', 'smy-zz', 'title', 'title1', 'ytxt', 'yuanwen', 'zhengwen-start']
+['CN_Kindle_Kai', 'CNother', 'font2', 'kindle-cn-bold', 'kindle-cn-kai', 'kindle-cn-para-2em-indent', 'kindle-cn-para-center', 'kindle-cn-para-left', 'kindle-cn-para-no-indent', kindle-cn-table-body', 'kindle-cn-table-rn1', 'normaltext3', 'normaltext5', 'noteContent', 'rm', 'smy-sm', 'smy-zz', 'ytxt', 'yuanwen', 'zhengwen-start']
 
 
 ** 合并注释
@@ -22,6 +22,7 @@
 ** v06: kindle-cn-para-no-indent, kindle-cn-para-2em-indent, <br/><br/>
 ** v06: <br/><br/></p>后面是原文
 ** v13: 尔雅的最后一个链接要重新生成？
+** v13_part0021.xhtml，尔雅笔画索引，sigil_not_in_toc，但是在页前加链接索引
 
 
 十三经：
