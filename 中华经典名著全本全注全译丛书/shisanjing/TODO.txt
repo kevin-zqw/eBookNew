@@ -1,4 +1,4 @@
-['CN_Kindle_Kai', 'CNother', 'font2', 'kindle-cn-bold', 'kindle-cn-kai', 'kindle-cn-para-2em-indent', 'kindle-cn-para-center', 'kindle-cn-para-left', 'kindle-cn-para-no-indent', kindle-cn-table-body', 'kindle-cn-table-rn1', 'smy-sm', 'smy-zz']
+['CN_Kindle_Kai', 'font2', 'kindle-cn-bold', 'kindle-cn-kai', kindle-cn-table-body', 'kindle-cn-table-rn1']
 
 
 ** 合并注释
