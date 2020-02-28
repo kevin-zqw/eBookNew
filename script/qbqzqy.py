@@ -510,6 +510,46 @@ def stat_css():
     print(sorted(all_styles))
 
 
+def check_kindle_cn_kai():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+    need_print = []
+
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            all_lines = file.readlines()
+
+        last_yiwen = False
+        last_matched = False
+
+        for line in all_lines:
+            if len(line.strip()) == 0:
+                continue
+            if r'<td class="kindle-cn-table-rn1"><span class="kindle-cn-kai">' in line:
+                last_yiwen = False
+                last_matched = False
+                continue
+            if r'【译文】' in line:
+                last_yiwen = True
+                last_matched = False
+                continue
+            if r'kindle-cn-kai' in line:
+                if not last_yiwen and not last_matched:
+                    need_print.append(line)
+                    last_matched = False
+                else:
+                    last_matched = True
+                last_yiwen = False
+            else:
+                last_yiwen = False
+                last_matched = False
+
+    for s in need_print:
+        print(s)
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -520,5 +560,6 @@ if __name__ == '__main__':
     # merge_all_text()
     # process_center_block()
     # check_merge()
-    replace_class()
+    # replace_class()
     # stat_css()
+    check_kindle_cn_kai()

@@ -1,6 +1,6 @@
-['CN_Kindle_Kai', 'font2', 'kindle-cn-bold', 'kindle-cn-kai', kindle-cn-table-body', 'kindle-cn-table-rn1']
+'kindle-cn-kai', kindle-cn-table-body', 'kindle-cn-table-rn1'
 
-
+** <p><span class，正则处理
 ** 合并注释
 ** 孝经《前言》样式、引文、倒数第二段德文Times字体
 ** v13_image00002, duokan-single-image
@@ -12,6 +12,7 @@
 ** css: block样式没有了，l样式是否为靠左no-indent？
 ** 排版先确定每一本书的h1, h2, h3, h4，平级标题前加圆圈◎或者五角星☆
 ** 诗经的h2严格只有5个，其它h2都加上◎
+** 诗经的h2后面还有题解
 ** （阙）的页面找个图片（古文阙或佚）做样式
 ** 春秋左传【经】【传】
 ** <p class="yuanwen"><br/></p>：原文标识
