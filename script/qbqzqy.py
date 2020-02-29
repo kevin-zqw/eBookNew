@@ -550,6 +550,36 @@ def check_kindle_cn_kai():
         print(s)
 
 
+def blockquote():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            all_lines = file.readlines()
+
+        changed = False
+        block_started = False
+        for (index, line) in enumerate(all_lines):
+            if r'<blockquote>' in line:
+                block_started = True
+                continue
+            if r'</blockquote>' in line:
+                block_started = False
+                continue
+            if not block_started:
+                continue
+
+            changed = True
+            all_lines[index] = line.replace('<p>', '<p class="bp">')
+
+        if changed:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(''.join(all_lines))
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -561,5 +591,6 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    stat_css()
+    # stat_css()
     # check_kindle_cn_kai()
+    blockquote()
