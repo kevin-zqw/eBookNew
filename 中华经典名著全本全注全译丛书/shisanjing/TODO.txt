@@ -19,6 +19,7 @@
 ** <p class="zhengwen-start">
 ** <table class="kindle-cn-table-body">
 ** v04的标题h1，需要拆分
+** v09的标题h1，题解需要拆分
 ** v13: 尔雅的最后一个链接要重新生成？
 ** v13_part0021.xhtml，尔雅笔画索引，sigil_not_in_toc，但是在页前加链接索引
 
