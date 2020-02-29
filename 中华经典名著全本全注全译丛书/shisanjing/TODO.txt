@@ -1,4 +1,4 @@
-'kindle-cn-kai', kindle-cn-table-body', 'kindle-cn-table-rn1'
+['block', 'chapter', 'cp', 'inline', 'intitle', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'list1', 'lk', 'pingxi', 'pretxt', 'rm', 'sptxt', 'yiwen', 'ytxt', 'yuanwen', 'zhengwen', 'zhengwen-start']
 
 ** <p><span class，正则处理
 ** 合并注释
@@ -19,9 +19,6 @@
 ** <p class="zhengwen-start">
 ** <table class="kindle-cn-table-body">
 ** v04的标题h1，需要拆分
-** v04: normaltext3是译文；normaltext5是引用材料
-** v06: kindle-cn-para-no-indent, kindle-cn-para-2em-indent, <br/><br/>
-** v06: <br/><br/></p>后面是原文
 ** v13: 尔雅的最后一个链接要重新生成？
 ** v13_part0021.xhtml，尔雅笔画索引，sigil_not_in_toc，但是在页前加链接索引
 

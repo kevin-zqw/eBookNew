@@ -561,5 +561,5 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    # stat_css()
-    check_kindle_cn_kai()
+    stat_css()
+    # check_kindle_cn_kai()
