@@ -49,7 +49,7 @@ if __name__ == '__main__':
     #     print('usage: python3 {} <dir>'.format(sys.argv[0]))
     #     exit(0)
     # dir_path = sys.argv[1]
-    dir_path = r'/Users/kevin/GitHub/eBookNew/中华经典名著全本全注全译丛书/wenxuan/html'
+    dir_path = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
 
     for filename in os.listdir(dir_path):
         if not filename.endswith('.xhtml'):

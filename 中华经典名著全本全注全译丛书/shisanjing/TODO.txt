@@ -1,4 +1,4 @@
-['block', 'chapter', 'cp', 'inline', 'intitle', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'list1', 'lk', 'pingxi', 'pretxt', 'rm', 'sptxt', 'yiwen', 'ytxt', 'yuanwen', 'zhengwen', 'zhengwen-start']
+['bigtitle', 'block', 'bp-dummy', 'chapter', 'cp', 'img0', 'inline', 'int', 'intitle', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'list1', 'lk', 'pingxi', 'pretxt', 'rm', 'sptxt', 'yiwen', 'ytxt', 'yuanwen', 'zhengwen', 'zhengwen-start']
 
 ** <p><span class，正则处理
 ** 合并注释
