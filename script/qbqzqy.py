@@ -645,6 +645,26 @@ def process_shijing():
             break
 
 
+def padding_erya_index():
+    file_path = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split/v13_part0021.xhtml'
+    with open(file_path, 'r', encoding='utf-8') as file:
+        all_lines = file.readlines()
+
+    max_count = 6
+    for (index, line) in enumerate(all_lines):
+        if r'<p class="index-text"><span>' in line:
+            matches = re.findall(r'<p class="index-text"><span>(.*?)<a', line)
+            text_count = len(matches[0])
+            padding_count = max_count - text_count
+            padding_text = ''
+            if 0 < padding_count:
+                padding_text = '　' * padding_count
+            all_lines[index] = re.sub(r'(<p class="index-text"><span>.*?)<a', r'\1' + padding_text + '<a', line)
+
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(''.join(all_lines))
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -656,8 +676,9 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    # stat_css()
+    stat_css()
     # check_kindle_cn_kai()
     # blockquote()
     # check_style()
-    process_shijing()
+    # process_shijing()
+    # padding_erya_index()
