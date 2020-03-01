@@ -594,6 +594,57 @@ def check_style():
             print(filename)
 
 
+def process_shijing():
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+
+    emsp = r'　'
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            all_lines = file.readlines()
+
+        poem_lines = []
+        tr_matched = False
+        max_count = 0
+        for (index, line) in enumerate(all_lines):
+            if len(line.strip()) == 0:
+                continue
+            if r'<tr>' in line:
+                tr_matched = True
+                continue
+            if tr_matched and r'<td class="kindle-cn-table-rn1">' in line:
+                poem_lines.append(index)
+                pure_text = re.sub(r'<[^<>]*?>', '', line.strip())
+                count = len(pure_text)
+                if max_count < count:
+                    max_count = count
+                tr_matched = False
+
+        changed = False
+        for index in poem_lines:
+            line = all_lines[index]
+            has_sup = r'<sup>' in line
+            pure_text = re.sub(r'<[^<>]*?>', '', line.strip())
+            padding_count = max_count - len(pure_text)
+
+            padding_str = ''
+            if 0 < padding_count:
+                padding_str = emsp * padding_count
+
+            if not has_sup:
+                padding_str += r'<sup><img alt="" src="../Images/note_placeholder.png"/></sup></td>'
+
+            if 0 < len(padding_str):
+                all_lines[index] = line.replace(r'</td>', padding_str)
+                changed = True
+        if changed:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(''.join(all_lines))
+            break
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -605,7 +656,8 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    stat_css()
+    # stat_css()
     # check_kindle_cn_kai()
     # blockquote()
     # check_style()
+    process_shijing()

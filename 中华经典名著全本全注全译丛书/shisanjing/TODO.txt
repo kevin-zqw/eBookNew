@@ -1,28 +1,16 @@
 ['bigtitle', 'block', 'bp-dummy', 'chapter', 'cp', 'img0', 'inline', 'int', 'intitle', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'l', 'list1', 'lk', 'pingxi', 'pretxt', 'rm', 'sptxt', 'yiwen', 'ytxt', 'yuanwen', 'zhengwen', 'zhengwen-start']
 
-** <p><span class，正则处理
-** 合并注释
-** 孝经《前言》样式、引文、倒数第二段德文Times字体
-** v13_image00002, duokan-single-image
-** <div
-** <hr
-** h1, h2, h3, h4
-** 检查标题中有生僻字的情况：周易标题有卦辞的正则：<h2 id="[^"]*?">[^（）]*?（.）</h2>
-** 【附：朱子补传】
-** css: block样式没有了，l样式是否为靠左no-indent？
-** 排版先确定每一本书的h1, h2, h3, h4，平级标题前加圆圈◎或者五角星☆
-** 诗经的h2严格只有5个，其它h2都加上◎
-** 诗经的h2后面还有题解
+** 诗经样式
+** 诗经对齐，补透明注释图片
+** vol卷竖排，字体变小？margin-top改小？
 ** （阙）的页面找个图片（古文阙或佚）做样式
-** 春秋左传【经】【传】
 ** <p class="yuanwen"><br/></p>：原文标识
 ** <p class="zhengwen-start">
 ** <table class="kindle-cn-table-body">
-** v04的标题h1，需要拆分
-** v09的标题h1，题解需要拆分
 ** v13: 尔雅的最后一个链接要重新生成？
 ** v13_part0021.xhtml，尔雅笔画索引，sigil_not_in_toc，但是在页前加链接索引
 ** 总目录、每一卷目录
+** inline，导出所有html检查class
 
 
 十三经：
