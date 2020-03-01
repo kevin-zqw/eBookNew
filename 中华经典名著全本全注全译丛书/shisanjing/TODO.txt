@@ -1,9 +1,6 @@
 ['bigtitle', 'bp-dummy', 'c', 'chapter', 'cp', 'duokan-footnote', 'duokan-footnote-content', 'duokan-footnote-item', 'duokan-image-single', 'footnote', 'img0', 'index-text', 'inline', 'int', 'intitle', 'jing-zhuan', 'kindle-cn-table-body', 'kindle-cn-table-rn1', 'line', 'list1', 'lk', 'nf', '', 'poem-yiwen', 'pretxt', 'rm-heading', 'sec-chapter', 'sigil_not_in_toc', 'small-heading', 'sptxt', 'sub', 'times', 'toc', 'toc_intitle', 'toc_list', 'vol', 'vol_back', 'vol_header', 'vol_pub', 'vol_sub', 'vol_t1', 'vol_t2', 'xchar', 'xian', 'yiwen', 'ytxt', 'yuanwen', 'zhengwen', 'zhengwen-start']
 ['display:none;', 'margin-left: 5em;', 'margin: 40px 0px;', 'text-decoration:none!important;color:black;']
 
-** 字体子集化，加几个fake页面
-** 闪退？多测试几次吧
-
 
 十三经：
 1.《周易》
