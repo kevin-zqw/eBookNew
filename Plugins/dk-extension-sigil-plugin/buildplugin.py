@@ -19,7 +19,6 @@ TEMP_DIR = os.path.join(SCRIPT_DIR, PLUGIN_NAME)
 
 PLUGIN_FILES = ['plugin.py',
             'plugin.xml',
-            'updatecheck.py',
             'utilities.py']
 
 def findVersion():
