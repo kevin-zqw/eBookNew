@@ -72,40 +72,43 @@ def save_all(note_path, path_html_list, not_found_list, found_multiple_list):
                 file.write(new)
                 file.write('\n')
                 file.write('[找到多处匹配]\n\n')
+            print('有问题的笔记已经保存到：{}，请手工查找并替换'.format(error_path))
+    else:
+        print('完美，所有注释都已经处理完毕')
 
 
 def main():
     if len(sys.argv) < 3:
-        print('usage: python3 {} <note_txt> <html_dir>'.format(sys.argv[0]))
+        print('使用方法：python3 {} <笔记文本文件> <html目录>'.format(sys.argv[0]))
         exit(0)
 
     note_path = sys.argv[1]
     html_dir = sys.argv[2]
 
     if not os.path.exists(note_path):
-        print("{} doesn't exists".format(note_path))
+        print("{}笔记文件不存在".format(note_path))
         exit(0)
 
     if not os.path.isfile(note_path):
-        print("{} is not a file".format(note_path))
+        print("{}笔记文件不是一个文本文件".format(note_path))
         exit(0)
 
     if not os.path.exists(html_dir):
-        print("{} doesn't exists".format(html_dir))
+        print("{}目录不存在".format(html_dir))
         exit(0)
 
     if not os.path.isdir(html_dir):
-        print("{} is not a dir".format(html_dir))
+        print("{}不是一个目录".format(html_dir))
         exit(0)
 
     all_notes = read_all_notes(note_path)
     if len(all_notes) == 0:
-        print("No notes found in {}".format(note_path))
+        print("{}文件中没有找到任何笔记".format(note_path))
         exit(0)
 
     path_html_list = read_all_html(html_dir)
     if len(path_html_list) == 0:
-        print("No html file found in {}".format(html_dir))
+        print("{}目录中没有任何html文件".format(html_dir))
         exit(0)
 
     not_found_list = []
