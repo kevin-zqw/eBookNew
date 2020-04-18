@@ -72,7 +72,7 @@ def save_all(note_path, path_html_list, not_found_list, found_multiple_list):
                 file.write(new)
                 file.write('\n')
                 file.write('[找到多处匹配]\n\n')
-                
+
             print('有问题的笔记已经保存到：{}，请手工查找并替换'.format(error_path))
     else:
         print('完美，所有注释都已经处理完毕')
