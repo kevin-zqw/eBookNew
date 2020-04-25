@@ -1,0 +1,41 @@
+p.noindent-bodyContent-1-c-top-14{
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0em;
+    margin-right: 0em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    
+    text-align: center;
+    
+    font-size: 1em;
+}
+
+p.poemContent-1-fangsong-topbot-10{
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    margin-left: 5em;
+    margin-right: 0em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    
+    text-align: justify;
+    font-family: "fangsong";
+    font-size: 1em;
+}
+
+
+
+p.quoteContent-1-fangsong-top-4{
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+    text-indent: 2em;
+    line-height: 1.5em;
+    
+    text-align: justify;
+    font-family: "fangsong";
+    font-size: 1em;
+}
+

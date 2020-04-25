@@ -1,0 +1,41 @@
+p.noindent-bodyContent-1-kaiti-r-top{
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    margin-left: 0em;
+    margin-right: 0em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    
+    text-align: right;
+    font-family: "kaiti";
+    font-size: 1em;
+}
+
+p.poemContent-3-topbot-4{
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    margin-left: 4em;
+    margin-right: 0em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    
+    text-align: left;
+    font-family: "kaiti";
+    font-size: 1em;
+}
+
+p.poemContent-3-topbot-5{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 4em;
+    margin-right: 0em;
+    text-indent: 0em;
+    line-height: 1.5em;
+    
+    text-align: left;
+    font-family: "kaiti";
+    font-size: 1em;
+}
+
+
+

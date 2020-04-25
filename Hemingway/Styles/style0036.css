@@ -1,0 +1,36 @@
+a{    text-decoration:none}
+nav li { 
+list-style:none;
+}
+
+nav ol {
+padding-left:0;
+margin-left:0;
+font-size: 100%;
+} 
+
+nav&gt;ol ol
+{
+margin-left:2em;
+}
+nav li a
+{
+text-decoration:none;color:black;
+display:block;
+margin:1em 0 !important;
+}
+nav&gt;ol&gt;li&gt;a{
+font-size: 120%;
+font-weight: normal;
+display:block;
+margin-left:0 !important;
+padding-left:0 !important;
+}
+nav h1{
+border:none;
+color:black;
+text-align:center;
+margin-bottom:2em;
+margin-top:1em;
+font-weight: bold;
+}
