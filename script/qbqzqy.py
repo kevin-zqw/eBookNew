@@ -489,7 +489,7 @@ def replace_class():
 
 
 def stat_css():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/中华经典名著全本全注全译丛书/shisanjing/html_split'
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/Hemingway/Text'
 
     all_classes = set()
     all_styles = set()
