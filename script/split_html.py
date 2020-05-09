@@ -18,7 +18,11 @@ def split_html(base_dir, filename):
 
     split_tag = r'----split----'
 
-    if split_tag not in content:
+    h1_tag = '<h1'
+    h2_tag = '<h2'
+    has_multiple_header = (1 < (content.count(h1_tag) + content.count(h2_tag)))
+
+    if split_tag not in content and not has_multiple_header:
         return
 
     print('split', filename)
@@ -30,7 +34,7 @@ def split_html(base_dir, filename):
 
     sub_lines = []
     body_start_matched = False
-    tag_matched = False
+    header_tag_matched = False
     index = 1
     for line in all_lines:
         if body_start in line:
@@ -45,13 +49,18 @@ def split_html(base_dir, filename):
             save_split_file(base_dir, filename, index, prefix, postfix, sub_lines)
             index += 1
             break
-        elif split_tag in line:
-            if tag_matched:
+        elif h1_tag in line or h2_tag in line:
+            if header_tag_matched:
                 save_split_file(base_dir, filename, index, prefix, postfix, sub_lines)
                 index += 1
+                sub_lines = [line]
             else:
-                tag_matched = True
+                header_tag_matched = True
                 sub_lines.append(line)
+        elif split_tag in line:
+            save_split_file(base_dir, filename, index, prefix, postfix, sub_lines)
+            index += 1
+            sub_lines = []
         else:
             sub_lines.append(line)
 
