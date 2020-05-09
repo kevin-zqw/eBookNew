@@ -80,7 +80,7 @@ def save_split_file(base_dir, filename, index, prefix, postfix, lines):
 
 
 def main():
-    base_dir = r'/Users/kevin/GitHub/eBookNew/Hemingway/Text'
+    base_dir = r'/Users/orcbit/Stuff/eBookNew/Hemingway/Text'
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
