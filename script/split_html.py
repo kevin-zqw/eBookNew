@@ -26,6 +26,7 @@ def split_html(base_dir, filename):
         return
 
     print('split', filename)
+    os.remove(file_path)
 
     body_start = '<body>'
     body_end = '</body>'
