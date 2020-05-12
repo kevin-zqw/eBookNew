@@ -14,3 +14,21 @@
 
 *********************
  - 记得批量替换的时候，一定要用Sublime Text，不能用Atom
+
+# 部卷标题
+part-title
+part-kt
+
+# 章标题
+chapter-title
+chapter-kt
+
+# 节标题
+section-title
+section-title-compact
+
+# 居左小标题
+subtitle
+
+# 居中小标题
+mini_title
