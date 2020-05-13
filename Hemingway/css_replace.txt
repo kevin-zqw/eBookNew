@@ -28,7 +28,6 @@ bodyContent-2-top
 chatu_img
 chatu_img-5
 del
-dian
 enContent-1-7
 fnContent-1
 fnContent-2
