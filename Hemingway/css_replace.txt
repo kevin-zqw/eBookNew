@@ -1,5 +1,6 @@
 ## classes
 
+body
 bodyContent-1
 bodyContent-1-10
 bodyContent-1-362
@@ -25,22 +26,32 @@ bodyContent-2-fangsong-1
 bodyContent-2-kaiti
 bodyContent-2-kaiti-top
 bodyContent-2-top
+bookname
+bottom
 box
 boxBlock-12
 boxContent-1-168
+chapter-kt
+chapter-title
 chatu_img
 chatu_img-5
 cover
+cp
 del
 dian
 enContent-1-7
 fnContent-1
 fnContent-2
+fs
 hang-bodyContent-1
 hang-bodyContent-1-heiti
 hang-bodyContent-1-top
 hang-bodyContent-2
+image
 kaiti
+kt
+kuang1
+kuang2
 letter
 letter-top-8
 letterContent-1-7
@@ -55,12 +66,13 @@ noindent-bodyContent-1-kaiti-r-top
 noindent-bodyContent-1-kaiti-top
 noindent-bodyContent-1-r-top
 noindent-bodyContent-1-top
-noindent-bodyContent-11
 noindent-bodyContent-2
 noindent-bodyContent-2-kaiti-top
 noindent-letterSign-2
-pagebreak
 paralog
+part-author
+part-kt
+part-title
 pic-h-2
 pic-img
 pic-img-w10
@@ -103,6 +115,9 @@ quoteContent-1-top
 quoteContent-1-top-15
 quoteContent-1-top-2
 quoteContent-1-top-35
+section-title
+section-title-compact
+sign
 signContent-1
 signContent-1-fangsong
 signContent-1-kaiti
@@ -111,10 +126,14 @@ signContent-1-kaiti-c
 tuti
 tuzhu
 underline
+vol
+xchar
 
 
 
 ## style
+display:none
 float:right
-font-family:songti;
-page-break-after:always
+margin-left:3em
+margin-top:50%
+page-break-before:always

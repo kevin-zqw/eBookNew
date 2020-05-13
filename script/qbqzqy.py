@@ -489,7 +489,7 @@ def replace_class():
 
 
 def stat_css():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/Hemingway/Text'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/Hemingway/Text'
 
     all_classes = set()
     all_styles = set()
@@ -676,10 +676,10 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    # stat_css()
+    stat_css()
     # check_kindle_cn_kai()
     # blockquote()
     # check_style()
     # process_shijing()
     # padding_erya_index()
-    wenxuan_split_dir(r'/Users/kevin/GitHub/eBookNew/Hemingway/Text')
+    # wenxuan_split_dir(r'/Users/kevin/GitHub/eBookNew/Hemingway/Text')
