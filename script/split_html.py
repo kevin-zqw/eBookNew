@@ -79,8 +79,7 @@ def save_split_file(base_dir, filename, index, prefix, postfix, lines):
         file.truncate()
 
 
-def main():
-    base_dir = r'/Users/orcbit/Stuff/eBookNew/Hemingway/Text'
+def main(base_dir):
     all_files = sorted(os.listdir(base_dir))
 
     for filename in all_files:
@@ -91,4 +90,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) < 2:
+        print('usage: python3 {} <dir>'.format(sys.argv[0]))
+        exit(0)
+    dir_path = sys.argv[1]
+
+    main(dir_path)
