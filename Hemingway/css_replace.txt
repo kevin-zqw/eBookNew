@@ -27,10 +27,6 @@ bodyContent-2-kaiti-top
 bodyContent-2-top
 
 
-chatu_img
-chatu_img-5
-
-
 enContent-1-7
 fnContent-1
 fnContent-2
@@ -77,6 +73,10 @@ pic-img-w65
 pic-img-w70
 pic-img-w80
 pic-img-w95
+
+
+chatu_img
+chatu_img-5
 
 
 tuti
