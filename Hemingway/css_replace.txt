@@ -33,9 +33,6 @@ hang-bodyContent-1-top
 hang-bodyContent-2
 
 
-kaiti
-
-
 noindent-bodyContent-1
 noindent-bodyContent-1-c-1
 noindent-bodyContent-1-c-top
