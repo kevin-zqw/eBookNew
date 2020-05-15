@@ -9,6 +9,7 @@
  - 检查<br/>
  - 序、前言、后记等设置为fs
  - 献词、文前等加blockquote以及bottom
+ - 文前插图看看要不要加<p class="bottom">
  - v12_028，术语释义汇编，前面的英文加<span>西语字体定义
  - （）和【】等用<span class="kh">
  - 样式中-top的处理
@@ -16,11 +17,22 @@
  - 前一句以【:：】结束，后接引文，改blockquote
  - <b></b>检查并移除
 
+
 插图
  - 165张
 
 *********************
  - 记得批量替换的时候，一定要用Sublime Text，不能用Atom
+
+
+<div class="chatu_img">[\n\s]*<img src="([^"]*?)" class="pic-img-w(\d+)" alt=""/>[\n\s]*<p class="tuti">([^<>]*?)</p>[\n\s]*</div>
+
+ <div class="duokan-image-single">
+   <img alt="" width="$2%;" src="$1"/>
+
+   <p class="duokan-image-maintitle">$3</p>
+ </div>
+
 
 # 部卷标题
 part-title
