@@ -4,8 +4,6 @@ bodyContent-1
 bodyContent-1-10
 bodyContent-1-362
 bodyContent-1-c
-bodyContent-1-fangsong
-bodyContent-1-fangsong-top
 bodyContent-1-heiti-c
 bodyContent-1-kaiti
 bodyContent-1-kaiti-51
@@ -21,7 +19,6 @@ bodyContent-1-top-161
 bodyContent-1-top-6
 bodyContent-1-topbot
 bodyContent-2
-bodyContent-2-fangsong-1
 bodyContent-2-kaiti
 bodyContent-2-kaiti-top
 bodyContent-2-top
@@ -40,4 +37,3 @@ noindent-bodyContent-1-r-top
 noindent-bodyContent-1-top
 noindent-bodyContent-2
 noindent-bodyContent-2-kaiti-top
-noindent-letterSign-2
