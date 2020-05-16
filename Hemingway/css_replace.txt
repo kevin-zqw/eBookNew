@@ -27,12 +27,6 @@ bodyContent-2-kaiti-top
 bodyContent-2-top
 
 
-hang-bodyContent-1
-hang-bodyContent-1-heiti
-hang-bodyContent-1-top
-hang-bodyContent-2
-
-
 noindent-bodyContent-1
 noindent-bodyContent-1-c-1
 noindent-bodyContent-1-c-top
