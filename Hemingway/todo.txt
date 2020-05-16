@@ -11,7 +11,6 @@
  - 献词、文前等加blockquote以及bottom
  - 文前插图看看要不要加<p class="bottom">
  - v12_028，术语释义汇编，前面的英文加<span>西语字体定义
- - （）、〔〕等用<span class="kh">
  - 样式中-top的处理
  - 戏剧悬挂
  - 前一句以【:：】结束，后接引文，改blockquote
