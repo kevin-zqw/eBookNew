@@ -10,7 +10,7 @@ def run(bk):
 	fnid1 = 0
 
 	note_sup = r'\[\[(.*?):(.*?)\]\]'
-	note_p = r'\<p\>\[\[(.*?):(.*?)\]\](.+)\<\/p\>'
+	note_p = r'\<p\>\[\[(.*?):(.*?)\]\](.+)\<\/p\>\n'
 # all xhtml/html files - moves found notes to end of file, insert a link in the text and link to css in the files with notes
 	for (id, href) in bk.text_iter():
 		html = bk.readfile(id)
