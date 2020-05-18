@@ -665,6 +665,40 @@ def padding_erya_index():
         file.write(''.join(all_lines))
 
 
+def fix_h3_h4():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/歷史的長河·講談社（全12册）/Text'
+    all_files = sorted(os.listdir(base_dir), reverse=False)
+
+    for filename in all_files:
+        if not filename.endswith('.xhtml'):
+            continue
+        path = os.path.join(base_dir, filename)
+
+        with open(path, 'r+', encoding='utf-8') as file:
+            all_lines = file.readlines()
+
+            need_change_h4_to_h3 = False
+            changed = False
+            for (i, line) in enumerate(all_lines):
+                if '<h1' in line or '<h2' in line:
+                    need_change_h4_to_h3 = True
+                    continue
+                if '<h3' in line:
+                    need_change_h4_to_h3 = False
+                    continue
+
+                if '<h4' in line and need_change_h4_to_h3:
+                    line = line.replace('<h4', '<h3')
+                    all_lines[i] = line.replace('</h4', '</h3')
+                    changed = True
+
+            if changed:
+                print(filename)
+                file.seek(0)
+                file.write(''.join(all_lines))
+                file.truncate()
+
+
 if __name__ == '__main__':
     # wenxuan_split_all()
     # insert_all_notes()
@@ -676,10 +710,11 @@ if __name__ == '__main__':
     # process_center_block()
     # check_merge()
     # replace_class()
-    stat_css()
+    # stat_css()
     # check_kindle_cn_kai()
     # blockquote()
     # check_style()
     # process_shijing()
     # padding_erya_index()
     # wenxuan_split_dir(r'/Users/kevin/GitHub/eBookNew/Hemingway/Text')
+    fix_h3_h4()
