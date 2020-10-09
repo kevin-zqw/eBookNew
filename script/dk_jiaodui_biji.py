@@ -50,7 +50,7 @@ def replace_note(old, new, path_html_list, not_found_list, found_multiple_list):
             path_html_list[match_index] = (replace_path, replace_content)
 
 
-def save_all(note_path, path_html_list, not_found_list, found_multiple_list):
+def save_all(note_path, path_html_list, not_found_list, found_multiple_list, manual_list):
     for (html_path, html_content) in path_html_list:
         with open(html_path, 'w', encoding='utf-8') as file:
             file.write(html_content)
@@ -72,6 +72,13 @@ def save_all(note_path, path_html_list, not_found_list, found_multiple_list):
                 file.write(new)
                 file.write('\n')
                 file.write('[找到多处匹配]\n\n')
+
+            for (old, new) in manual_list:
+                file.write(old)
+                file.write('=>\n')
+                file.write(new)
+                file.write('\n')
+                file.write('[手动替换]\n\n')
 
             print('有问题的笔记已经保存到：{}，请手工查找并替换'.format(error_path))
     else:
@@ -114,11 +121,18 @@ def main():
 
     not_found_list = []
     found_multiple_list = []
+    manual_list = []
 
     for (old, new) in all_notes:
-        replace_note(old, new, path_html_list, not_found_list, found_multiple_list)
+        manual1 = '手工替换'
+        manual2 = '手动替换'
 
-    save_all(note_path, path_html_list, not_found_list, found_multiple_list)
+        if old.startswith(manual1) or old.startswith(manual2) or new.startswith(manual1) or new.startswith(manual2):
+            manual_list.append((old, new))
+        else:
+            replace_note(old, new, path_html_list, not_found_list, found_multiple_list)
+
+    save_all(note_path, path_html_list, not_found_list, found_multiple_list, manual_list)
 
 
 if __name__ == '__main__':
