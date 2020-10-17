@@ -56,7 +56,7 @@ def save_all(note_path, path_html_list, not_found_list, found_multiple_list, man
             file.write(html_content)
             file.truncate()
 
-    if len(not_found_list) != 0 or len(found_multiple_list) != 0:
+    if len(not_found_list) != 0 or len(found_multiple_list) != 0 or len(manual_list) != 0:
         error_path = os.path.splitext(note_path)[0] + "_error.txt"
         with open(error_path, 'w', encoding='utf-8') as file:
             for (old, new) in not_found_list:
