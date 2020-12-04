@@ -39,7 +39,7 @@ def split_images():
 
 
 def read_all_hanzi():
-    base_dir = r'/Users/kevin/GitHub/eBookNew/sj/sj_hanzi00'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/cyk/Images00'
     all_txt = list(filter(lambda f: f.endswith('.txt'), os.listdir(base_dir)))
 
     all_hanzi = []
@@ -55,7 +55,7 @@ def read_all_hanzi():
 
 def replace_hanzi():
     all_hanzi = read_all_hanzi()
-    base_dir = r'/Users/kevin/GitHub/eBookNew/sj/sj_html'
+    base_dir = r'/Users/kevin/GitHub/eBookNew/cyk/Text'
     for filename in os.listdir(base_dir):
         if not filename.endswith('.xhtml'):
             continue
@@ -63,8 +63,8 @@ def replace_hanzi():
         with open(file_path, 'r+', encoding='utf-8') as file:
             content = file.read()
             for (image, hanzi) in all_hanzi:
-                old = f'<img src="../Images/{image}" alt="" class="kindle-cn-inline-character"/>'
-                new = f'<span class="font">{hanzi}</span>'
+                old = f'<img alt="" class="zhangyue-img-h1" src="../Images/{image}" zy-enlarge-src="none"/>'
+                new = f'<span alt="unicode">{hanzi}</span>'
                 content = content.replace(old, new)
 
             file.seek(0)
