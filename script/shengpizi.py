@@ -72,6 +72,27 @@ def replace_hanzi():
             file.truncate()
 
 
+def replace_unicode():
+    base_dir = r'/Users/kevin/GitHub/eBookNew/cyk/Text'
+    for filename in os.listdir(base_dir):
+        if not filename.endswith('.xhtml'):
+            continue
+        file_path = os.path.join(base_dir, filename)
+        with open(file_path, 'r+', encoding='utf-8') as file:
+            content = file.read()
+            matches = re.findall(r'<span alt="unicode">([^<>]+)</span>', content)
+            for m in matches:
+                src = f'<span alt="unicode">{m}</span>'
+                code = hex(ord(m)).upper()
+                dest = f'<span alt="{code}">{m}</span>'
+                content = content.replace(src, dest, 1)
+
+            file.seek(0)
+            file.write(content)
+            file.truncate()
+
+
 if __name__ == '__main__':
     # split_images()
     replace_hanzi()
+    # replace_unicode()
